@@ -131,6 +131,35 @@ namespace UnConfuserEx
             }
             Logger.Info("Deobfuscated module successfully written");
 
+            Logger.Info("Deobfuscated module successfully written");
+
+            // Diagnostic IL dump for CLIENT.Library::Main (token 06000151)
+            try
+            {
+                foreach (var type in module.GetTypes())
+                {
+                    foreach (var m in type.Methods)
+                    {
+                        if (m.MDToken.Raw == 0x06000151)
+                        {
+                            var il = new List<string>();
+                            il.Add($"Method: {m.FullName} (Token: {m.MDToken.Raw:X8})");
+                            if (m.HasBody)
+                            {
+                                foreach (var instr in m.Body.Instructions)
+                                    il.Add(instr.ToString());
+                            }
+                            File.WriteAllLines("main_method_deobfuscated_il_v2.txt", il);
+                            Logger.Info("Dumped Main method IL to main_method_deobfuscated_il_v2.txt");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"Failed to dump Main method IL: {ex.Message}");
+            }
+
             // Done
             return 0;
         }

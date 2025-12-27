@@ -45,7 +45,7 @@ namespace UnConfuserEx.Protections
             {
                 try
                 {
-                    Logger.Debug($"Removing obfuscation from method {method.FullName}");
+                    Logger.Debug($"Removing obfuscation from method {method.FullName} (Token: {method.MDToken.Raw:X8})");
 
                     var deobfuscatedBlocks = DeobfuscateMethod(ref module, method);
 
@@ -53,6 +53,7 @@ namespace UnConfuserEx.Protections
                     IList<ExceptionHandler> exceptionHandlers;
                     deobfuscatedBlocks.GetCode(out instructions, out exceptionHandlers);
                     DotNetUtils.RestoreBody(method, instructions, exceptionHandlers);
+                    FixStackConsistency(method);
 
                     if (IsMethodObfuscated(method))
                     {
@@ -75,8 +76,30 @@ namespace UnConfuserEx.Protections
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error($"Failed to remove obfuscation for method {method.FullName} ({ex.Message})");
+                    Logger.Error($"Failed to remove obfuscation for method {method.FullName} (Token: {method.MDToken.Raw:X8}) ({ex.Message})");
                     Logger.Error(ex.StackTrace);
+
+                    try
+                    {
+                        var ilDump = new List<string>();
+                        ilDump.Add($"Method: {method.FullName} (Token: {method.MDToken.Raw:X8})");
+                        ilDump.Add($"Error: {ex.Message}");
+                        if (method.HasBody)
+                        {
+                            foreach (var i in method.Body.Instructions)
+                                ilDump.Add(i.ToString());
+                            if (method.Body.HasExceptionHandlers)
+                            {
+                                ilDump.Add("Exception Handlers:");
+                                foreach (var eh in method.Body.ExceptionHandlers)
+                                    ilDump.Add($"{eh.HandlerType}: Try({eh.TryStart} - {eh.TryEnd}), Handler({eh.HandlerStart} - {eh.HandlerEnd}), Filter({eh.FilterStart})");
+                            }
+                        }
+                        System.IO.File.AppendAllLines("failed_control_flow.txt", ilDump);
+                        System.IO.File.AppendAllText("failed_control_flow.txt", "\n----------------------------\n");
+                    }
+                    catch { }
+
                     numFailed++;
                 }
             }
@@ -121,6 +144,32 @@ namespace UnConfuserEx.Protections
 
             // If we have many numeric obfuscation artifacts (> 5), consider it obfuscated
             if (constantOps > 5) return true;
+
+            // Detection for if-chain dispatcher:
+            // ldloc <v>; ldc.i4 <c>; ceq; brfalse/brtrue
+            int ifChainMatch = 0;
+            for (int i = 0; i < instrs.Count - 4; i++)
+            {
+                if (instrs[i].IsLdloc() && instrs[i+1].IsLdcI4() && instrs[i+2].OpCode == OpCodes.Ceq &&
+                    (instrs[i+3].OpCode == OpCodes.Brfalse || instrs[i+3].OpCode == OpCodes.Brfalse_S ||
+                     instrs[i+3].OpCode == OpCodes.Brtrue || instrs[i+3].OpCode == OpCodes.Brtrue_S))
+                {
+                    ifChainMatch++;
+                }
+            }
+            if (ifChainMatch > 10) return true;
+
+            // Extra check for Bed's Mod state update pattern:
+            // ldc.i4 <c>; stloc <v>;
+            int stateUpdates = 0;
+            for (int i = 0; i < instrs.Count - 2; i++)
+            {
+                if (instrs[i].IsLdcI4() && instrs[i+1].IsStloc())
+                {
+                    stateUpdates++;
+                }
+            }
+            if (stateUpdates > 15) return true;
 
             // Extra check for Bed's Mod specific pattern: 
             // ldloc <v>; ldc.i4 <c>; mul; ldc.i4 <c2>; xor; stloc <v>;
@@ -177,6 +226,67 @@ namespace UnConfuserEx.Protections
             blocks.RepartitionBlocks();
 
             return blocks;
+        }
+
+        private static void FixStackConsistency(MethodDef method)
+        {
+            if (!method.HasBody) return;
+
+            var instructions = method.Body.Instructions;
+            if (instructions.Count == 0) return;
+            var entry = instructions[0];
+
+            // Identify all branch targets to help find basic block boundaries
+            var targets = new HashSet<Instruction>();
+            foreach (var instr in instructions)
+            {
+                if (instr.Operand is Instruction t) targets.Add(t);
+                else if (instr.Operand is IList<Instruction> ts)
+                {
+                    foreach (var t2 in ts) if (t2 != null) targets.Add(t2);
+                }
+            }
+
+            for (int i = 0; i < instructions.Count; i++)
+            {
+                var instr = instructions[i];
+                if ((instr.OpCode == OpCodes.Br || instr.OpCode == OpCodes.Br_S) && instr.Operand == entry)
+                {
+                    // Find basic block start for this junk jump
+                    int blockStart = i;
+                    while (blockStart > 0)
+                    {
+                        var prev = instructions[blockStart - 1];
+                        if (prev.OpCode.FlowControl == FlowControl.Branch ||
+                            prev.OpCode.FlowControl == FlowControl.Cond_Branch ||
+                            prev.OpCode.FlowControl == FlowControl.Return ||
+                            prev.OpCode.FlowControl == FlowControl.Throw ||
+                            targets.Contains(instructions[blockStart]))
+                        {
+                            break;
+                        }
+                        blockStart--;
+                    }
+
+                    // Calculate stack height from blockStart to the jump
+                    int height = 0;
+                    for (int j = blockStart; j < i; j++)
+                    {
+                        instructions[j].UpdateStack(ref height);
+                        if (height < 0) height = 0;
+                    }
+
+                    // Insert enough pops to clear the stack before jumping back to entry
+                    if (height > 0)
+                    {
+                        for (int k = 0; k < height; k++)
+                        {
+                            instructions.Insert(i, Instruction.Create(OpCodes.Pop));
+                        }
+                        i += height;
+                    }
+                }
+            }
         }
     }
 }

@@ -256,7 +256,7 @@ namespace de4dot.blocks {
 					if (blocksLeft[i].startInstr == instrIndex)
 						return i;
 				}
-				throw new ApplicationException("Could not find start BaseBlockInfo");
+				return -1;
 			}
 
 			int FindEnd(int instrIndex) {
@@ -264,7 +264,7 @@ namespace de4dot.blocks {
 					if (blocksLeft[i].endInstr == instrIndex)
 						return i;
 				}
-				throw new ApplicationException("Could not find end BaseBlockInfo");
+				return -1;
 			}
 
 			List<BaseBlock> GetBlocks(int startInstr, int endInstr, out int startIndex, out int endIndex) {
@@ -274,7 +274,13 @@ namespace de4dot.blocks {
 				var rv = new List<BaseBlock>();
 
 				startIndex = FindStart(startInstr);
+				if (startIndex == -1) {
+					endIndex = -1;
+					return null;
+				}
 				endIndex = FindEnd(endInstr);
+				if (endIndex == -1)
+					return null;
 
 				for (int i = startIndex; i <= endIndex; i++)
 					rv.Add(blocksLeft[i].baseBlock);
@@ -288,6 +294,8 @@ namespace de4dot.blocks {
 					return new List<BaseBlock>();
 
 				var rv = GetBlocks(startInstr, endInstr, out int startIndex, out int endIndex);
+				if (rv == null)
+					return null;
 				UpdateParent(rv, bb);
 
 				var bbi = new BaseBlockInfo(blocksLeft[startIndex].startInstr, blocksLeft[endIndex].endInstr, bb);
@@ -324,6 +332,8 @@ namespace de4dot.blocks {
 				var tryStart = instrToIndex[exHandlers[0].TryStart];
 				var tryEnd = GetInstrIndex(exHandlers[0].TryEnd) - 1;
 				tryBlock.BaseBlocks = bbl.Replace(tryStart, tryEnd, tryBlock);
+				if (tryBlock.BaseBlocks == null)
+					continue;
 
 				foreach (var exHandler in exHandlers) {
 					var tryHandlerBlock = new TryHandlerBlock(exHandler);
@@ -335,11 +345,17 @@ namespace de4dot.blocks {
 						filterStart = instrToIndex[exHandler.FilterStart];
 						var end = instrToIndex[exHandler.HandlerStart] - 1;
 						tryHandlerBlock.FilterHandlerBlock.BaseBlocks = bbl.Replace(filterStart, end, tryHandlerBlock.FilterHandlerBlock);
+						if (tryHandlerBlock.FilterHandlerBlock.BaseBlocks == null) {
+							// This shouldn't happen if tryBlock was ok, but let's be safe.
+						}
 					}
 
 					handlerStart = instrToIndex[exHandler.HandlerStart];
 					handlerEnd = GetInstrIndex(exHandler.HandlerEnd) - 1;
 					tryHandlerBlock.HandlerBlock.BaseBlocks = bbl.Replace(handlerStart, handlerEnd, tryHandlerBlock.HandlerBlock);
+					if (tryHandlerBlock.HandlerBlock.BaseBlocks == null) {
+						// Error
+					}
 
 					tryHandlerBlock.BaseBlocks = bbl.Replace(filterStart == -1 ? handlerStart : filterStart, handlerEnd, tryHandlerBlock);
 				}

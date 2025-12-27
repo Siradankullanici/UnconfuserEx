@@ -1,0 +1,416 @@
+0000: IL_0000: ldtoken ?0?
+0001: IL_0005: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+0002: IL_000A: callvirt System.Reflection.Module System.Type::get_Module()
+0003: IL_000F: dup
+0004: IL_0010: callvirt System.String System.Reflection.Module::get_FullyQualifiedName()
+0005: IL_0015: stloc V_0
+0006: IL_0019: ldloc V_0
+0007: IL_001D: callvirt System.Int32 System.String::get_Length()
+0008: IL_0022: ldc.i4 0
+0009: IL_0027: ble.s IL_0040
+0010: IL_0029: ldloc V_0
+0011: IL_002D: ldc.i4 0
+0012: IL_0032: callvirt System.Char System.String::get_Chars(System.Int32)
+0013: IL_0037: ldc.i4 60
+0014: IL_003C: ceq
+0015: IL_003E: br.s IL_0045
+0016: IL_0040: ldc.i4 0
+0017: IL_0045: stloc V_1
+0018: IL_0049: call System.IntPtr System.Runtime.InteropServices.Marshal::GetHINSTANCE(System.Reflection.Module)
+0019: IL_004E: call System.Void* System.IntPtr::op_Explicit(System.IntPtr)
+0020: IL_0053: stloc V_2
+0021: IL_0057: ldloc V_2
+0022: IL_005B: ldloc V_2
+0023: IL_005F: ldc.i4 60
+0024: IL_0064: add
+0025: IL_0065: ldind.u4
+0026: IL_0066: conv.u
+0027: IL_0067: add
+0028: IL_0068: dup
+0029: IL_0069: ldc.i4 6
+0030: IL_006E: add
+0031: IL_006F: ldind.u2
+0032: IL_0070: stloc V_3
+0033: IL_0074: dup
+0034: IL_0075: ldc.i4 20
+0035: IL_007A: add
+0036: IL_007B: ldind.u2
+0037: IL_007C: stloc V_4
+0038: IL_0080: ldc.i4 0
+0039: IL_0085: conv.u
+0040: IL_0086: stloc V_5
+0041: IL_008A: ldc.i4 0
+0042: IL_008F: stloc V_6
+0043: IL_0093: ldc.i4 24
+0044: IL_0098: add
+0045: IL_0099: ldloc V_4
+0046: IL_009D: add
+0047: IL_009E: stloc V_7
+0048: IL_00A2: ldc.i4 1558468627
+0049: IL_00A7: stloc V_8
+0050: IL_00AB: ldc.i4 1777427588
+0051: IL_00B0: stloc V_9
+0052: IL_00B4: ldc.i4 1801754737
+0053: IL_00B9: stloc V_10
+0054: IL_00BD: ldc.i4 1935922174
+0055: IL_00C2: stloc V_11
+0056: IL_00C6: ldc.i4 0
+0057: IL_00CB: stloc V_18
+0058: IL_00CF: br IL_023B
+0059: IL_00D4: ldloc V_7
+0060: IL_00D8: dup
+0061: IL_00D9: ldc.i4 4
+0062: IL_00DE: add
+0063: IL_00DF: stloc V_7
+0064: IL_00E3: ldind.u4
+0065: IL_00E4: ldloc V_7
+0066: IL_00E8: dup
+0067: IL_00E9: ldc.i4 4
+0068: IL_00EE: add
+0069: IL_00EF: stloc V_7
+0070: IL_00F3: ldind.u4
+0071: IL_00F4: mul
+0072: IL_00F5: stloc V_19
+0073: IL_00F9: ldloc V_19
+0074: IL_00FD: ldc.i4 249875564
+0075: IL_0102: bne.un.s IL_0161
+0076: IL_0104: ldloc V_2
+0077: IL_0108: ldloc V_1
+0078: IL_010C: brtrue.s IL_011B
+0079: IL_010E: ldloc V_7
+0080: IL_0112: ldc.i4 4
+0081: IL_0117: add
+0082: IL_0118: ldind.u4
+0083: IL_0119: br.s IL_012D
+0084: IL_011B: ldloc V_7
+0085: IL_011F: ldc.i4 3
+0086: IL_0124: conv.i
+0087: IL_0125: ldc.i4 4
+0088: IL_012A: mul
+0089: IL_012B: add
+0090: IL_012C: ldind.u4
+0091: IL_012D: conv.u
+0092: IL_012E: add
+0093: IL_012F: stloc V_5
+0094: IL_0133: ldloc V_1
+0095: IL_0137: brtrue.s IL_0140
+0096: IL_0139: ldloc V_7
+0097: IL_013D: ldind.u4
+0098: IL_013E: br.s IL_0152
+0099: IL_0140: ldloc V_7
+0100: IL_0144: ldc.i4 2
+0101: IL_0149: conv.i
+0102: IL_014A: ldc.i4 4
+0103: IL_014F: mul
+0104: IL_0150: add
+0105: IL_0151: ldind.u4
+0106: IL_0152: ldc.i4 2
+0107: IL_0157: shr.un
+0108: IL_0158: stloc V_6
+0109: IL_015C: br IL_0218
+0110: IL_0161: ldloc V_19
+0111: IL_0165: brfalse IL_0218
+0112: IL_016A: ldloc V_2
+0113: IL_016E: ldloc V_1
+0114: IL_0172: brtrue.s IL_0181
+0115: IL_0174: ldloc V_7
+0116: IL_0178: ldc.i4 4
+0117: IL_017D: add
+0118: IL_017E: ldind.u4
+0119: IL_017F: br.s IL_0193
+0120: IL_0181: ldloc V_7
+0121: IL_0185: ldc.i4 3
+0122: IL_018A: conv.i
+0123: IL_018B: ldc.i4 4
+0124: IL_0190: mul
+0125: IL_0191: add
+0126: IL_0192: ldind.u4
+0127: IL_0193: conv.u
+0128: IL_0194: add
+0129: IL_0195: stloc V_20
+0130: IL_0199: ldloc V_7
+0131: IL_019D: ldc.i4 2
+0132: IL_01A2: conv.i
+0133: IL_01A3: ldc.i4 4
+0134: IL_01A8: mul
+0135: IL_01A9: add
+0136: IL_01AA: ldind.u4
+0137: IL_01AB: ldc.i4 2
+0138: IL_01B0: shr.un
+0139: IL_01B1: stloc V_21
+0140: IL_01B5: ldc.i4 0
+0141: IL_01BA: stloc V_22
+0142: IL_01BE: br.s IL_020E
+0143: IL_01C0: ldloc V_8
+0144: IL_01C4: ldloc V_20
+0145: IL_01C8: dup
+0146: IL_01C9: ldc.i4 4
+0147: IL_01CE: add
+0148: IL_01CF: stloc V_20
+0149: IL_01D3: ldind.u4
+0150: IL_01D4: xor
+0151: IL_01D5: ldloc V_9
+0152: IL_01D9: add
+0153: IL_01DA: ldloc V_10
+0154: IL_01DE: ldloc V_11
+0155: IL_01E2: mul
+0156: IL_01E3: add
+0157: IL_01E4: ldloc V_9
+0158: IL_01E8: stloc V_8
+0159: IL_01EC: ldloc V_10
+0160: IL_01F0: stloc V_9
+0161: IL_01F4: ldloc V_11
+0162: IL_01F8: stloc V_9
+0163: IL_01FC: stloc V_11
+0164: IL_0200: ldloc V_22
+0165: IL_0204: ldc.i4 1
+0166: IL_0209: add
+0167: IL_020A: stloc V_22
+0168: IL_020E: ldloc V_22
+0169: IL_0212: ldloc V_21
+0170: IL_0216: blt.un.s IL_01C0
+0171: IL_0218: ldloc V_7
+0172: IL_021C: ldc.i4 8
+0173: IL_0221: conv.i
+0174: IL_0222: ldc.i4 4
+0175: IL_0227: mul
+0176: IL_0228: add
+0177: IL_0229: stloc V_7
+0178: IL_022D: ldloc V_18
+0179: IL_0231: ldc.i4 1
+0180: IL_0236: add
+0181: IL_0237: stloc V_18
+0182: IL_023B: ldloc V_18
+0183: IL_023F: ldloc V_3
+0184: IL_0243: blt IL_00D4
+0185: IL_0248: ldc.i4 16
+0186: IL_024D: newarr System.UInt32
+0187: IL_0252: stloc V_12
+0188: IL_0256: ldc.i4 16
+0189: IL_025B: newarr System.UInt32
+0190: IL_0260: stloc V_13
+0191: IL_0264: ldc.i4 16
+0192: IL_0269: newarr System.UInt32
+0193: IL_026E: stloc V_14
+0194: IL_0272: ldc.i4 16
+0195: IL_0277: newarr System.UInt32
+0196: IL_027C: stloc V_15
+0197: IL_0280: ldc.i4 0
+0198: IL_0285: stloc V_23
+0199: IL_0289: br IL_031A
+0200: IL_028E: ldloc V_12
+0201: IL_0292: ldloc V_23
+0202: IL_0296: ldloc V_11
+0203: IL_029A: stelem.i4
+0204: IL_029B: ldloc V_13
+0205: IL_029F: ldloc V_23
+0206: IL_02A3: ldloc V_9
+0207: IL_02A7: stelem.i4
+0208: IL_02A8: ldloc V_9
+0209: IL_02AC: ldc.i4 5
+0210: IL_02B1: shr.un
+0211: IL_02B2: ldloc V_9
+0212: IL_02B6: ldc.i4 27
+0213: IL_02BB: shl
+0214: IL_02BC: or
+0215: IL_02BD: stloc V_8
+0216: IL_02C1: ldloc V_10
+0217: IL_02C5: ldc.i4 3
+0218: IL_02CA: shr.un
+0219: IL_02CB: ldloc V_10
+0220: IL_02CF: ldc.i4 29
+0221: IL_02D4: shl
+0222: IL_02D5: or
+0223: IL_02D6: stloc V_9
+0224: IL_02DA: ldloc V_11
+0225: IL_02DE: ldc.i4 7
+0226: IL_02E3: shr.un
+0227: IL_02E4: ldloc V_11
+0228: IL_02E8: ldc.i4 25
+0229: IL_02ED: shl
+0230: IL_02EE: or
+0231: IL_02EF: stloc V_10
+0232: IL_02F3: ldloc V_8
+0233: IL_02F7: ldc.i4 11
+0234: IL_02FC: shr.un
+0235: IL_02FD: ldloc V_8
+0236: IL_0301: ldc.i4 21
+0237: IL_0306: shl
+0238: IL_0307: or
+0239: IL_0308: stloc V_11
+0240: IL_030C: ldloc V_23
+0241: IL_0310: ldc.i4 1
+0242: IL_0315: add
+0243: IL_0316: stloc V_23
+0244: IL_031A: ldloc V_23
+0245: IL_031E: ldc.i4 16
+0246: IL_0323: blt IL_028E
+0247: IL_0328: ldloc V_14
+0248: IL_032C: ldc.i4 0
+0249: IL_0331: ldloc V_14
+0250: IL_0335: ldc.i4 0
+0251: IL_033A: ldelem.u4
+0252: IL_033B: ldloc V_15
+0253: IL_033F: ldc.i4 0
+0254: IL_0344: ldelem.u4
+0255: IL_0345: xor
+0256: IL_0346: stelem.i4
+0257: IL_0347: ldloc V_14
+0258: IL_034B: ldc.i4 1
+0259: IL_0350: ldloc V_14
+0260: IL_0354: ldc.i4 1
+0261: IL_0359: ldelem.u4
+0262: IL_035A: ldloc V_15
+0263: IL_035E: ldc.i4 1
+0264: IL_0363: ldelem.u4
+0265: IL_0364: mul
+0266: IL_0365: stelem.i4
+0267: IL_0366: ldloc V_14
+0268: IL_036A: ldc.i4 2
+0269: IL_036F: ldloc V_14
+0270: IL_0373: ldc.i4 2
+0271: IL_0378: ldelem.u4
+0272: IL_0379: ldloc V_15
+0273: IL_037D: ldc.i4 2
+0274: IL_0382: ldelem.u4
+0275: IL_0383: add
+0276: IL_0384: stelem.i4
+0277: IL_0385: ldloc V_14
+0278: IL_0389: ldc.i4 3
+0279: IL_038E: ldloc V_14
+0280: IL_0392: ldc.i4 3
+0281: IL_0397: ldelem.u4
+0282: IL_0398: ldloc V_15
+0283: IL_039C: ldc.i4 3
+0284: IL_03A1: ldelem.u4
+0285: IL_03A2: xor
+0286: IL_03A3: stelem.i4
+0287: IL_03A4: ldloc V_14
+0288: IL_03A8: ldc.i4 4
+0289: IL_03AD: ldloc V_14
+0290: IL_03B1: ldc.i4 4
+0291: IL_03B6: ldelem.u4
+0292: IL_03B7: ldloc V_15
+0293: IL_03BB: ldc.i4 4
+0294: IL_03C0: ldelem.u4
+0295: IL_03C1: mul
+0296: IL_03C2: stelem.i4
+0297: IL_03C3: ldloc V_14
+0298: IL_03C7: ldc.i4 5
+0299: IL_03CC: ldloc V_14
+0300: IL_03D0: ldc.i4 5
+0301: IL_03D5: ldelem.u4
+0302: IL_03D6: ldloc V_15
+0303: IL_03DA: ldc.i4 5
+0304: IL_03DF: ldelem.u4
+0305: IL_03E0: add
+0306: IL_03E1: stelem.i4
+0307: IL_03E2: ldloc V_14
+0308: IL_03E6: ldc.i4 6
+0309: IL_03EB: ldloc V_14
+0310: IL_03EF: ldc.i4 6
+0311: IL_03F4: ldelem.u4
+0312: IL_03F5: ldloc V_15
+0313: IL_03F9: ldc.i4 6
+0314: IL_03FE: ldelem.u4
+0315: IL_03FF: xor
+0316: IL_0400: stelem.i4
+0317: IL_0401: ldloc V_14
+0318: IL_0405: ldc.i4 7
+0319: IL_040A: ldloc V_14
+0320: IL_040E: ldc.i4 7
+0321: IL_0413: ldelem.u4
+0322: IL_0414: ldloc V_15
+0323: IL_0418: ldc.i4 7
+0324: IL_041D: ldelem.u4
+0325: IL_041E: mul
+0326: IL_041F: stelem.i4
+0327: IL_0420: ldloc V_14
+0328: IL_0424: ldc.i4 8
+0329: IL_0429: ldloc V_14
+0330: IL_042D: ldc.i4 8
+0331: IL_0432: ldelem.u4
+0332: IL_0433: ldloc V_15
+0333: IL_0437: ldc.i4 8
+0334: IL_043C: ldelem.u4
+0335: IL_043D: add
+0336: IL_043E: stelem.i4
+0337: IL_043F: ldloc V_14
+0338: IL_0443: ldc.i4 9
+0339: IL_0448: ldloc V_14
+0340: IL_044C: ldc.i4 9
+0341: IL_0451: ldelem.u4
+0342: IL_0452: ldloc V_15
+0343: IL_0456: ldc.i4 9
+0344: IL_045B: ldelem.u4
+0345: IL_045C: xor
+0346: IL_045D: stelem.i4
+0347: IL_045E: ldloc V_14
+0348: IL_0462: ldc.i4 10
+0349: IL_0467: ldloc V_14
+0350: IL_046B: ldc.i4 10
+0351: IL_0470: ldelem.u4
+0352: IL_0471: ldloc V_15
+0353: IL_0475: ldc.i4 10
+0354: IL_047A: ldelem.u4
+0355: IL_047B: mul
+0356: IL_047C: stelem.i4
+0357: IL_047D: ldloc V_14
+0358: IL_0481: ldc.i4 11
+0359: IL_0486: ldloc V_14
+0360: IL_048A: ldc.i4 11
+0361: IL_048F: ldelem.u4
+0362: IL_0490: ldloc V_15
+0363: IL_0494: ldc.i4 11
+0364: IL_0499: ldelem.u4
+0365: IL_049A: add
+0366: IL_049B: stelem.i4
+0367: IL_049C: ldloc V_14
+0368: IL_04A0: ldc.i4 12
+0369: IL_04A5: ldloc V_14
+0370: IL_04A9: ldc.i4 12
+0371: IL_04AE: ldelem.u4
+0372: IL_04AF: ldloc V_15
+0373: IL_04B3: ldc.i4 12
+0374: IL_04B8: ldelem.u4
+0375: IL_04B9: xor
+0376: IL_04BA: stelem.i4
+0377: IL_04BB: ldloc V_14
+0378: IL_04BF: ldc.i4 13
+0379: IL_04C4: ldloc V_14
+0380: IL_04C8: ldc.i4 13
+0381: IL_04CD: ldelem.u4
+0382: IL_04CE: ldloc V_15
+0383: IL_04D2: ldc.i4 13
+0384: IL_04D7: ldelem.u4
+0385: IL_04D8: mul
+0386: IL_04D9: stelem.i4
+0387: IL_04DA: ldloc V_14
+0388: IL_04DE: ldc.i4 14
+0389: IL_04E3: ldloc V_14
+0390: IL_04E7: ldc.i4 14
+0391: IL_04EC: ldelem.u4
+0392: IL_04ED: ldloc V_15
+0393: IL_04F1: ldc.i4 14
+0394: IL_04F6: ldelem.u4
+0395: IL_04F7: add
+0396: IL_04F8: stelem.i4
+0397: IL_04F9: ldloc V_14
+0398: IL_04FD: ldc.i4 15
+0399: IL_0502: ldloc V_14
+0400: IL_0506: ldc.i4 15
+0401: IL_050B: ldelem.u4
+0402: IL_050C: ldloc V_15
+0403: IL_0510: ldc.i4 15
+0404: IL_0515: ldelem.u4
+0405: IL_0516: xor
+0406: IL_0517: stelem.i4
+0407: IL_0518: ldloc V_5
+0408: IL_051C: call System.IntPtr System.IntPtr::op_Explicit(System.Void*)
+0409: IL_0521: ldloc V_6
+0410: IL_0525: ldc.i4 2
+0411: IL_052A: shl
+0412: IL_052B: ldc.i4.s 64
+0413: IL_052D: ldloc V_3
+0414: IL_0531: call System.Void ?0?::Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogolThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogolᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ(System.IntPtr,System.UInt32,System.UInt32,System.UInt32)
+0415: IL_0536: ret

@@ -56,6 +56,18 @@ namespace UnConfuserEx.Protections
 
                     if (IsMethodObfuscated(method))
                     {
+                        // Dump the method body if it fails verification
+                        try
+                        {
+                            var ilDump = new List<string>();
+                            ilDump.Add($"Method: {method.FullName}");
+                            foreach (var i in method.Body.Instructions)
+                                ilDump.Add(i.ToString());
+                            System.IO.File.AppendAllLines("failed_control_flow.txt", ilDump);
+                            System.IO.File.AppendAllText("failed_control_flow.txt", "\n----------------------------\n");
+                        }
+                        catch { }
+
                         throw new Exception("Method still obfuscated after deobfuscation");
                     }
 
@@ -87,7 +99,41 @@ namespace UnConfuserEx.Protections
                 return false;
 
 
-            return IsSwitchObfuscation(method.Body.Instructions.ToList());
+            if (IsSwitchObfuscation(method.Body.Instructions.ToList()))
+                return true;
+
+            // Heuristic for "opaque predicate" or constant-based dispatcher:
+            // Look for a loop where a local variable is compared against a constant 
+            // and then modified by additions/subtractions of other constants.
+            var instrs = method.Body.Instructions;
+            int constantOps = 0;
+            for (int i = 0; i < instrs.Count; i++)
+            {
+                if (instrs[i].IsLdcI4())
+                {
+                    // If we see many constant additions/subtractions in a loop-like structure
+                    if (i + 1 < instrs.Count && (instrs[i+1].OpCode == OpCodes.Add || instrs[i+1].OpCode == OpCodes.Sub))
+                    {
+                        constantOps++;
+                    }
+                }
+            }
+
+            // If we have many numeric obfuscation artifacts (> 5), consider it obfuscated
+            if (constantOps > 5) return true;
+
+            // Extra check for Bed's Mod specific pattern: 
+            // ldloc <v>; ldc.i4 <c>; mul; ldc.i4 <c2>; xor; stloc <v>;
+            for (int i = 0; i < instrs.Count - 5; i++)
+            {
+                if (instrs[i].IsLdloc() && instrs[i+1].IsLdcI4() && instrs[i+2].OpCode == OpCodes.Mul &&
+                    instrs[i+3].IsLdcI4() && instrs[i+4].OpCode == OpCodes.Xor && instrs[i+5].IsStloc())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public static bool IsSwitchObfuscation(List<Instruction> instrs)
@@ -119,8 +165,10 @@ namespace UnConfuserEx.Protections
             blocks.RepartitionBlocks();
             blocks.UpdateBlocks();
 
-            blocks.Method.Body.SimplifyBranches();
-            blocks.Method.Body.OptimizeBranches();
+            // COMMENTED OUT: We don't want to optimize branches BEFORE the deobfuscator runs
+            // as it can change the patterns that SwitchDeobfuscator looks for.
+            // blocks.Method.Body.SimplifyBranches();
+            // blocks.Method.Body.OptimizeBranches();
 
             deobfuscator.Initialize(blocks);
             deobfuscator.Add(new SwitchDeobfuscator(module));

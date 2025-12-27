@@ -70,6 +70,8 @@ namespace UnConfuserEx.Protections.Delegates
             ResolveAllDelegates();
             ReplaceDelegateInvocations();
 
+            SimplifyCalli();       // Inline proxy removal
+            RemoveMethodProxies(); // Remove static method proxies
             RemoveHandlers();
             RemoveDelegateClasses();
 
@@ -281,5 +283,107 @@ namespace UnConfuserEx.Protections.Delegates
             }
         }
 
+        private void RemoveMethodProxies()
+        {
+            var proxies = new Dictionary<MethodDef, IMethod>();
+            var methodsToRemove = new HashSet<MethodDef>();
+
+            // 1. Identify Proxy Methods (Robust)
+            foreach (var method in Module.GetTypes().SelectMany(t => t.Methods).Where(m => m.HasBody && m.IsStatic))
+            {
+                var instrs = method.Body.Instructions;
+                IMethod? target = null;
+                bool foundCalli = false;
+
+                for (int i = 0; i < instrs.Count; i++)
+                {
+                    if (instrs[i].OpCode == OpCodes.Ldftn && instrs[i].Operand is IMethod m)
+                        target = m;
+                    else if (instrs[i].OpCode == OpCodes.Calli)
+                        foundCalli = true;
+                }
+
+                if (target != null && foundCalli)
+                {
+                    proxies[method] = target;
+                    methodsToRemove.Add(method);
+                    Logger.Info($"Found Method Proxy (Robust): {method.FullName} -> {target.FullName}");
+                }
+            }
+
+            if (proxies.Count == 0) return;
+
+            // 2. Replace Callers
+            int replacedCount = 0;
+            foreach (var method in Module.GetTypes().SelectMany(t => t.Methods).Where(m => m.HasBody))
+            {
+                var instrs = method.Body.Instructions;
+                for (int i = 0; i < instrs.Count; i++)
+                {
+                    if (instrs[i].OpCode == OpCodes.Call && instrs[i].Operand is MethodDef target && proxies.ContainsKey(target))
+                    {
+                        instrs[i].Operand = proxies[target];
+                        replacedCount++;
+                    }
+                }
+            }
+            Logger.Info($"Replaced {replacedCount} calls to method proxies.");
+
+            // 3. Remove Proxy Methods
+            int removedCount = 0;
+            foreach (var proxy in methodsToRemove)
+            {
+                try
+                {
+                    proxy.DeclaringType.Methods.Remove(proxy);
+                    removedCount++;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Warn($"Failed to remove proxy method {proxy.FullName}: {ex.Message}");
+                }
+            }
+            Logger.Info($"Removed {removedCount} proxy methods.");
+        }
+
+        private void SimplifyCalli()
+        {
+            int simplifiedCount = 0;
+            foreach (var method in Module.GetTypes().SelectMany(t => t.Methods).Where(m => m.HasBody))
+            {
+                var instrs = method.Body.Instructions;
+                for (int i = 0; i < instrs.Count - 1; i++)
+                {
+                    // Pattern: ldftn Target + ... + calli Sig
+                    // We look for ldftn and then the next calli. 
+                    // To be safe, we only simplify if there's no other control flow branch between them.
+                    if (instrs[i].OpCode == OpCodes.Ldftn && instrs[i].Operand is IMethod target)
+                    {
+                        // Look ahead for calli
+                        for (int j = i + 1; j < instrs.Count; j++)
+                        {
+                            if (instrs[j].OpCode == OpCodes.Calli)
+                            {
+                                // Found it. Replace calli with call/callvirt target
+                                // and nop out the ldftn.
+                                instrs[i].OpCode = OpCodes.Nop;
+                                instrs[i].Operand = null;
+
+                                instrs[j].OpCode = target.MethodSig.HasThis ? OpCodes.Callvirt : OpCodes.Call;
+                                instrs[j].Operand = target;
+
+                                simplifiedCount++;
+                                break;
+                            }
+                            // If we hit another ldftn or branch, stop looking to avoid incorrect matches
+                            if (instrs[j].OpCode == OpCodes.Ldftn || instrs[j].OpCode.FlowControl == FlowControl.Branch || instrs[j].OpCode.FlowControl == FlowControl.Cond_Branch)
+                                break;
+                        }
+                    }
+                }
+            }
+            if (simplifiedCount > 0)
+                Logger.Info($"Simplified {simplifiedCount} inlined calli instructions.");
+        }
     }
 }

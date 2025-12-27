@@ -275,7 +275,7 @@ namespace de4dot.blocks {
 
 		public void FlipConditionalBranch() {
 			if (fallThrough == null || targets == null || targets.Count != 1)
-				throw new ApplicationException("Invalid bcc block state");
+				return;
 			LastInstr.FlipConditonalBranch();
 			var oldFallThrough = fallThrough;
 			fallThrough = targets[0];

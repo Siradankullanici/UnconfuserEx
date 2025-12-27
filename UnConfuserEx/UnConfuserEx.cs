@@ -43,7 +43,9 @@ namespace UnConfuserEx
 
             var pipeline = new List<IProtection>
             {
-                // If this is present, it MUST be removed first
+                new RefProxyRemover(),
+                
+                // If this is present, it MUST be removed first (among CF/Tamper)
                 new AntiTamperRemover(),
                 
                 // This must then be removed second
@@ -52,7 +54,6 @@ namespace UnConfuserEx
                 // And these can all be removed in any order
                 new ResourcesRemover(),
                 new ConstantsRemover(),
-                new RefProxyRemover(),
                 new AntiDumpRemover(),
                 new UnicodeRemover(),
 

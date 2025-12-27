@@ -55,7 +55,7 @@ namespace UnConfuserEx.Protections
                     DotNetUtils.RestoreBody(method, instructions, exceptionHandlers);
                     FixStackConsistency(method);
 
-                    if (IsMethodObfuscated(method))
+                    if (IsMethodStillObfuscated(method))
                     {
                         // Dump the method body if it fails verification
                         try
@@ -117,6 +117,48 @@ namespace UnConfuserEx.Protections
             return numFailed == 0;
         }
 
+        /// <summary>
+        /// Stricter check used after deobfuscation - only detects core dispatcher patterns
+        /// </summary>
+        public static bool IsMethodStillObfuscated(MethodDef method)
+        {
+            if (!method.HasBody || method.Body.Instructions.Count == 0)
+                return false;
+
+            var instrs = method.Body.Instructions;
+            
+            // Only check for concrete dispatcher patterns:
+            // 1. Switch-based dispatcher
+            if (IsSwitchObfuscation(instrs.ToList()))
+                return true;
+            
+            // 2. If-chain dispatcher: ldloc; ldc.i4; ceq; brfalse/brtrue (needs > 15 occurrences)
+            int ifChainMatch = 0;
+            for (int i = 0; i < instrs.Count - 4; i++)
+            {
+                if (instrs[i].IsLdloc() && instrs[i+1].IsLdcI4() && instrs[i+2].OpCode == OpCodes.Ceq &&
+                    (instrs[i+3].OpCode == OpCodes.Brfalse || instrs[i+3].OpCode == OpCodes.Brfalse_S ||
+                     instrs[i+3].OpCode == OpCodes.Brtrue || instrs[i+3].OpCode == OpCodes.Brtrue_S))
+                {
+                    ifChainMatch++;
+                }
+            }
+            // Much higher threshold for post-deobfuscation check
+            if (ifChainMatch > 25) return true;
+            
+            // 3. Bed's Mod dispatcher: ldloc; ldc.i4; mul; ldc.i4; xor; stloc (keep strict check)
+            for (int i = 0; i < instrs.Count - 5; i++)
+            {
+                if (instrs[i].IsLdloc() && instrs[i+1].IsLdcI4() && instrs[i+2].OpCode == OpCodes.Mul &&
+                    instrs[i+3].IsLdcI4() && instrs[i+4].OpCode == OpCodes.Xor && instrs[i+5].IsStloc())
+                {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
         public static bool IsMethodObfuscated(MethodDef method)
         {
             if (!method.HasBody || method.Body.Instructions.Count == 0)
@@ -126,10 +168,75 @@ namespace UnConfuserEx.Protections
             if (IsSwitchObfuscation(method.Body.Instructions.ToList()))
                 return true;
 
+            var instrs = method.Body.Instructions;
+            
+            // Exclude methods with significant pointer operations (ldind/stind) - these are typically
+            // low-level decryption routines (like AntiTamper) that legitimately have many constants
+            // and local variable assignments, but are not control-flow obfuscated.
+            int pointerOps = 0;
+            int arrayOps = 0;
+            bool hasNativeInterop = false;
+            
+            for (int i = 0; i < instrs.Count; i++)
+            {
+                var opCode = instrs[i].OpCode;
+                
+                // Check for pointer operations
+                if (opCode == OpCodes.Ldind_I || opCode == OpCodes.Ldind_I1 || opCode == OpCodes.Ldind_I2 ||
+                    opCode == OpCodes.Ldind_I4 || opCode == OpCodes.Ldind_I8 || opCode == OpCodes.Ldind_U1 ||
+                    opCode == OpCodes.Ldind_U2 || opCode == OpCodes.Ldind_U4 || opCode == OpCodes.Ldind_R4 ||
+                    opCode == OpCodes.Ldind_R8 || opCode == OpCodes.Ldind_Ref ||
+                    opCode == OpCodes.Stind_I || opCode == OpCodes.Stind_I1 || opCode == OpCodes.Stind_I2 ||
+                    opCode == OpCodes.Stind_I4 || opCode == OpCodes.Stind_I8 || opCode == OpCodes.Stind_R4 ||
+                    opCode == OpCodes.Stind_R8 || opCode == OpCodes.Stind_Ref)
+                {
+                    pointerOps++;
+                }
+                
+                // Check for array element access (common in crypto/decryption routines)
+                if (opCode == OpCodes.Ldelem || opCode == OpCodes.Ldelem_I || opCode == OpCodes.Ldelem_I1 ||
+                    opCode == OpCodes.Ldelem_I2 || opCode == OpCodes.Ldelem_I4 || opCode == OpCodes.Ldelem_I8 ||
+                    opCode == OpCodes.Ldelem_U1 || opCode == OpCodes.Ldelem_U2 || opCode == OpCodes.Ldelem_U4 ||
+                    opCode == OpCodes.Ldelem_R4 || opCode == OpCodes.Ldelem_R8 || opCode == OpCodes.Ldelem_Ref ||
+                    opCode == OpCodes.Stelem || opCode == OpCodes.Stelem_I || opCode == OpCodes.Stelem_I1 ||
+                    opCode == OpCodes.Stelem_I2 || opCode == OpCodes.Stelem_I4 || opCode == OpCodes.Stelem_I8 ||
+                    opCode == OpCodes.Stelem_R4 || opCode == OpCodes.Stelem_R8 || opCode == OpCodes.Stelem_Ref)
+                {
+                    arrayOps++;
+                }
+                
+                // Check for native interop calls (Marshal, IntPtr)
+                if (opCode == OpCodes.Call || opCode == OpCodes.Callvirt)
+                {
+                    var operand = instrs[i].Operand;
+                    if (operand is IMethod calledMethod)
+                    {
+                        var declType = calledMethod.DeclaringType?.FullName ?? "";
+                        if (declType.Contains("System.Runtime.InteropServices.Marshal") ||
+                            declType.Contains("System.IntPtr") ||
+                            declType.Contains("System.UIntPtr"))
+                        {
+                            hasNativeInterop = true;
+                        }
+                    }
+                }
+            }
+            
+            // If the method has >= 3 pointer operations, it's likely a low-level routine
+            if (pointerOps >= 3)
+                return false;
+            
+            // If the method has >= 5 array operations AND native interop calls, it's a crypto routine
+            if (arrayOps >= 5 && hasNativeInterop)
+                return false;
+            
+            // If the method has significant array operations (>= 10), likely crypto/decryption
+            if (arrayOps >= 10)
+                return false;
+
             // Heuristic for "opaque predicate" or constant-based dispatcher:
             // Look for a loop where a local variable is compared against a constant 
             // and then modified by additions/subtractions of other constants.
-            var instrs = method.Body.Instructions;
             int constantOps = 0;
             for (int i = 0; i < instrs.Count; i++)
             {

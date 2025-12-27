@@ -308,7 +308,7 @@ namespace UnConfuserEx.Protections
             var (type, decryptInstructions) = GetDecryptionType();
             if (type == null || decryptInstructions == null)
             {
-                Logger.Error("Failed to get decryption type");
+                Logger.Error($"Failed to get decryption type for method {initializeMethod!.FullName} (Token: {initializeMethod.MDToken.Raw:X8})");
                 return false;
             }
 

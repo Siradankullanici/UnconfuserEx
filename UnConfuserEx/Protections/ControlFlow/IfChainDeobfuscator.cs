@@ -34,53 +34,59 @@ namespace UnConfuserEx.Protections.ControlFlow
 
         protected override bool Deobfuscate(Block block)
         {
-            // Scan for any ldc; stloc pattern in the block
-            for (int i = 0; i < block.Instructions.Count - 1; i++)
+            // Scan for any stloc pattern in the block
+            for (int i = 0; i < block.Instructions.Count; i++)
             {
-                var ldc = block.Instructions[i];
-                var stloc = block.Instructions[i + 1];
-
-                if (ldc.IsLdcI4() && stloc.IsStloc())
+                var stloc = block.Instructions[i];
+                if (stloc.IsStloc())
                 {
                     var local = Instr.GetLocalVar(blocks.Locals, stloc);
                     if (local == null) continue;
 
-                    var value = ldc.GetLdcI4Value();
-                    
-                    // We need a start block for resolution.
-                    // If stloc is the last instruction, it's the fallthrough.
-                    // If it's followed by ldc; stloc; br; it's the target.
-                    // If it's in the middle, we treat the rest of the block as a virtual start.
-                    
-                    Block startResolve;
-                    int numToRemove;
+                    // Try to resolve from the next block or instruction
+                    Block startResolve = null;
+                    int numToRemove = 0;
 
-                    if (i + 1 == block.Instructions.Count - 1)
+                    if (i == block.Instructions.Count - 1)
                     {
-                        // Last in block
+                        // stloc is the last instruction, resolve from fallthrough
                         startResolve = block.FallThrough;
-                        numToRemove = 2;
+                        numToRemove = 1;
                     }
-                    else if (i + 2 == block.Instructions.Count - 1 && block.Instructions[i + 2].IsBr())
+                    else if (i + 1 == block.Instructions.Count - 1 && block.Instructions[i + 1].IsBr())
                     {
                         // stloc followed by br
                         startResolve = block.Targets[0];
-                        numToRemove = 3;
+                        numToRemove = 2;
                     }
                     else
                     {
-                        // Middle of block. This is complex. For now, we only resolve if it's the end of a block pattern.
+                        // Middle of block. We treat the rest of the block as a virtual start if possible,
+                        // but for now let's only handle ends of blocks as it's safer.
                         continue;
                     }
 
                     if (startResolve != null)
                     {
-                        var target = Resolve(startResolve, local, value);
-                        if (target != null && target != startResolve)
+                        // For stloc, we need the value. If the previous instruction was ldc, we have it.
+                        // If not, we can try to use the emulator to find the value at this point.
+                        emulator.Initialize(blocks.Method);
+                        // We need to emulate up to this point to know the value being stored.
+                        foreach (var instr in block.Instructions.Take(i + 1))
                         {
-                            Logger.Debug($"Method {blocks.Method.Name}: Resolved state {value} (Local {local}) to target {target}");
-                            block.ReplaceLastInstrsWithBranch(numToRemove, target);
-                            return true;
+                            emulator.Emulate(instr.Instruction);
+                        }
+
+                        var valueV = emulator.GetLocal(local);
+                        if (valueV is Int32Value i32 && i32.AllBitsValid())
+                        {
+                            var target = Resolve(startResolve, local, i32.Value);
+                            if (target != null && target != startResolve)
+                            {
+                                Logger.Debug($"Method {blocks.Method.Name}: Resolved state {i32.Value} (Local {local}) to target {target}");
+                                block.ReplaceLastInstrsWithBranch(numToRemove, target);
+                                return true;
+                            }
                         }
                     }
                 }
@@ -143,7 +149,7 @@ namespace UnConfuserEx.Protections.ControlFlow
 
         private bool IsDispatcher(Block block, Local local)
         {
-            if (block.Instructions.Count > 50) return false;
+            if (block.Instructions.Count > 100) return false;
             if (block.Instructions.Count == 0) return true;
             
             bool usesLocal = false;

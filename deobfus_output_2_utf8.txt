@@ -1,0 +1,28 @@
+﻿dotnet : Belirtilen k
+omut veya dosya bulun
+amad─▒─ş─▒ndan y├╝r├╝
+t├╝lemedi.
+At line:1 char:1
++ dotnet C:\Users\vic
+tim\Documents\GitHub\
+UnconfuserEx\UnConfus
+erEx\bin ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Belirti   
+ len komu...├╝r├╝    
+t├╝lemedi.:Strin    g
+) [], RemoteExc    ep
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+Bunun olas─▒ nedenleri ┼şunlar olabilir:
+  * Yerle┼şik bir dotnet komutunu yanl─▒┼ş yazd─▒n─▒z.
+  * Bir .NET program─▒n─▒ y├╝r├╝tmeyi ama├ğlad─▒n─▒z ancak dotnet-C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\bin\Debug\net9.0\UnConfuserEx.dll mevcut de─şil.
+  * Bir genel arac─▒ ├ğal─▒┼şt─▒rmay─▒ ama├ğlad─▒n─▒z ancak YOL dizininde bu ada sahip dotnet ├Ân eki olan bir y├╝r├╝t├╝lebilir dosya bulunamad─▒.

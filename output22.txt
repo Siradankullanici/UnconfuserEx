@@ -1,0 +1,22 @@
+﻿[0;36;40;2m343   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m351   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m351   [1] INFO  UnConfuserEx    - AntiTamper detected, attempting to remove[0m
+[0;32;40m353   [1] INFO  AntiTamper      - Decrypt method has 467 instructions[0m
+[0;32;40m354   [1] INFO  AntiTamper      - Found potential section hash: 0EE4CC6C at instruction 73[0m
+[0;36;40;2m355   [1] DEBUG AntiTamper      - Section 0: 16 4D 71 1F 6D 5E 44 68 - Hash: 6763E65E - Characteristics: E0000040[0m
+[0;32;40m355   [1] INFO  AntiTamper      - Found potential encrypted section by characteristics (0xE0000040): Section 0[0m
+[0;36;40;2m355   [1] DEBUG AntiTamper      - Found encrypted data in section Mqm^Dh[0m
+[0;32;40m356   [1] INFO  AntiTamper      - Found initial keys: 5CE45813, 69F16484, 6B649871, 7363D3FE[0m
+[0;36;40;2m356   [1] DEBUG AntiTamper      - Found initial decryption keys[0m
+[0;36;40;2m356   [1] DEBUG AntiTamper      - Detected deriver type is Dynamic[0m
+[0;36;40;2m363   [1] DEBUG AntiTamper      - Deriving decryption key[0m
+[0;36;40;2m368   [1] DEBUG AntiTamper      - Decrypting method bodies[0m
+[0;36;40;2m532   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m532   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m533   [1] INFO  UnConfuserEx    - Successfully removed AntiTamper protection[0m
+[0;32;40m621   [1] INFO  UnConfuserEx    - RefProxy detected, attempting to remove[0m
+[0;31;40;1;4m756   [1] FATAL UnConfuserEx    - Caught exception when trying to remove RefProxy protection[0m
+[0;31;40;1m766   [1] ERROR UnConfuserEx    - System.NullReferenceException: Object reference not set to an instance of an object.
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler..ctor(ModuleDefMD module, MethodDef handler) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 50
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.Remove(ModuleDefMD& module) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 61
+   at UnConfuserEx.UnConfuserEx.Main(String[] args) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\UnConfuserEx.cs:line 70[0m

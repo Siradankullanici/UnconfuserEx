@@ -1,0 +1,39 @@
+﻿[0;36;40;2m215   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogRlThe-????Quick-Brown-??????e-Lazy-DogRl?????The-Quick--Over-The-La????zy?() as potential decrypt method[0m
+[0;36;40;2m222   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogrlThe-????Quick-Brown-??????e-Lazy-Dogrl?????The-Quick--Over-The-La????zy?() as potential decrypt method[0m
+[0;32;40m222   [1] INFO  UnConfuserEx    - AntiTamper detected, attempting to remove[0m
+[0;32;40m223   [1] INFO  AntiTamper      - Decrypt method has 467 instructions[0m
+[0;32;40m224   [1] INFO  AntiTamper      - Found potential section hash: 0EE4CC6C at instruction 73[0m
+[0;36;40;2m225   [1] DEBUG AntiTamper      - Section 0: 16 4D 71 1F 6D 5E 44 68 - Hash: 6763E65E - Characteristics: E0000040[0m
+[0;32;40m225   [1] INFO  AntiTamper      - Found potential encrypted section by characteristics (0xE0000040): Section 0[0m
+[0;36;40;2m225   [1] DEBUG AntiTamper      - Found encrypted data in section Mqm^Dh[0m
+[0;32;40m226   [1] INFO  AntiTamper      - Found initial keys: 5CE45813, 69F16484, 6B649871, 7363D3FE[0m
+[0;36;40;2m226   [1] DEBUG AntiTamper      - Found initial decryption keys[0m
+[0;36;40;2m226   [1] DEBUG AntiTamper      - Detected deriver type is Dynamic[0m
+[0;36;40;2m230   [1] DEBUG AntiTamper      - Deriving decryption key[0m
+[0;36;40;2m266   [1] DEBUG AntiTamper      - Decrypting method bodies[0m
+[0;36;40;2m389   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogRlThe-????Quick-Brown-??????e-Lazy-DogRl?????The-Quick--Over-The-La????zy?() as potential decrypt method[0m
+[0;36;40;2m389   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogrlThe-????Quick-Brown-??????e-Lazy-Dogrl?????The-Quick--Over-The-La????zy?() as potential decrypt method[0m
+[0;32;40m390   [1] INFO  UnConfuserEx    - Successfully removed AntiTamper protection[0m
+[0;32;40m448   [1] INFO  UnConfuserEx    - RefProxy detected, attempting to remove[0m
+[0;36;40;2m453   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogDkThe-????Quick-Brown-??????e-Lazy-DogDk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m553   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogEkThe-????Quick-Brown-??????e-Lazy-DogEk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m557   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogFkThe-????Quick-Brown-??????e-Lazy-DogFk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m562   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogGkThe-????Quick-Brown-??????e-Lazy-DogGk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m575   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogHkThe-????Quick-Brown-??????e-Lazy-DogHk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m580   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogIkThe-????Quick-Brown-??????e-Lazy-DogIk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m584   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogJkThe-????Quick-Brown-??????e-Lazy-DogJk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m588   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogKkThe-????Quick-Brown-??????e-Lazy-DogKk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m592   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogLkThe-????Quick-Brown-??????e-Lazy-DogLk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m597   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogMkThe-????Quick-Brown-??????e-Lazy-DogMk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m603   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogNkThe-????Quick-Brown-??????e-Lazy-DogNk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m607   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogOkThe-????Quick-Brown-??????e-Lazy-DogOk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m611   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogPkThe-????Quick-Brown-??????e-Lazy-DogPk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m615   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogQkThe-????Quick-Brown-??????e-Lazy-DogQk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m620   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogRkThe-????Quick-Brown-??????e-Lazy-DogRk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;36;40;2m624   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-Fox?????Jumped-Over-The-Lazy-DogSkThe-????Quick-Brown-??????e-Lazy-DogSk?????The-Quick--Over-The-La????zy?(System.RuntimeFieldHandle,System.Byte)[0m
+[0;31;40;1;4m641   [1] FATAL UnConfuserEx    - Caught exception when trying to remove RefProxy protection[0m
+[0;31;40;1m648   [1] ERROR UnConfuserEx    - System.NotImplementedException: Unhandled token type: 80
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.ResolveAllDelegates() in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 132
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.Remove(ModuleDefMD& module) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 70
+   at UnConfuserEx.UnConfuserEx.Main(String[] args) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\UnConfuserEx.cs:line 70[0m
+

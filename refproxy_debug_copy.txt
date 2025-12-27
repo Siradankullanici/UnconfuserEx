@@ -1,0 +1,6 @@
+[RefProxyHandler] Key (Initial + XOR): 71A41346 (Init: 02000029, XOR: 6FA4131D)
+[RefProxyHandler] Key after X86 Emulation: 2B9F8B98 (was 71A41346)
+[RefProxyHandler] GetFieldHash: Found hash FD2431DD in attribute Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogrHThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogrHᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ
+[RefProxyHandler] Field: ¯)- (Len: 5), SigLen: 8, ExtraData: C0-00-00-4A-C0-94-89-02
+[RefProxyHandler] NameChars: 0,4,2,1,3, Shifts: 0,16,8,24
+[RefProxyHandler] Key (pre-hash): 2B9F8B98, Hash: FD2431DD, Final: 0BD39A38

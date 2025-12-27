@@ -14,38 +14,13 @@ namespace MSILEmulator.Instructions.Branch
             object val2 = ctx.Stack.Pop();
             object val1 = ctx.Stack.Pop();
 
-            if (val1.GetType() != val2.GetType())
-            {
-                throw new EmulatorException($"Attempted to compare different types {val1.GetType()} != {val2.GetType()}");
-            }
+            dynamic d2 = val2;
+            dynamic d1 = val1;
 
-            // Must be a better way of doing this?
+            if (d1 != d2)
+                return ctx.Offsets[((Instruction)instr.Operand).Offset];
 
-            if (val1.GetType() == typeof(int))
-            {
-                if ((int)val1 != (int)val2)
-                {
-                    return ctx.Offsets[((Instruction)instr.Operand).Offset];
-                }
-                else
-                {
-                    return ctx.Offsets[instr.Offset] + 1;
-                }
-            }
-
-            if (val1.GetType() == typeof(long))
-            {
-                if ((long)val1 != (long)val2)
-                {
-                    return ctx.Offsets[((Instruction)instr.Operand).Offset];
-                }
-                else
-                {
-                    return ctx.Offsets[instr.Offset] + 1;
-                }
-            }
-
-            throw new NotImplementedException($"Comparison of {val1.GetType().Name} not handled");
+            return -2;
         }
     }
 }

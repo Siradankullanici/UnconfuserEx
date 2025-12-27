@@ -1,0 +1,32 @@
+﻿[0;36;40;2m291   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m299   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m300   [1] INFO  UnConfuserEx    - AntiTamper detected, attempting to remove[0m
+[0;32;40m301   [1] INFO  AntiTamper      - Decrypt method has 467 instructions[0m
+[0;32;40m303   [1] INFO  AntiTamper      - Found potential section hash: 0EE4CC6C at instruction 73[0m
+[0;36;40;2m304   [1] DEBUG AntiTamper      - Section 0: 16 4D 71 1F 6D 5E 44 68 - Hash: 6763E65E - Characteristics: E0000040[0m
+[0;32;40m304   [1] INFO  AntiTamper      - Found potential encrypted section by characteristics (0xE0000040): Section 0[0m
+[0;36;40;2m304   [1] DEBUG AntiTamper      - Found encrypted data in section Mqm^Dh[0m
+[0;32;40m304   [1] INFO  AntiTamper      - Found initial keys: 5CE45813, 69F16484, 6B649871, 7363D3FE[0m
+[0;36;40;2m304   [1] DEBUG AntiTamper      - Found initial decryption keys[0m
+[0;36;40;2m305   [1] DEBUG AntiTamper      - Detected deriver type is Dynamic[0m
+[0;36;40;2m313   [1] DEBUG AntiTamper      - Deriving decryption key[0m
+[0;36;40;2m385   [1] DEBUG AntiTamper      - Decrypting method bodies[0m
+[0;36;40;2m560   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m560   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m561   [1] INFO  UnConfuserEx    - Successfully removed AntiTamper protection[0m
+[0;32;40m634   [1] INFO  UnConfuserEx    - RefProxy detected, attempting to remove[0m
+[0;31;40;1;4m825   [1] FATAL UnConfuserEx    - Caught exception when trying to remove RefProxy protection[0m
+[0;31;40;1m834   [1] ERROR UnConfuserEx    - System.Exception: Failed to emulate RefProxyKey ctor: Operator '~' cannot be applied to operand of type 'double'. Instructions dumped to refproxy_ctor_error.txt
+ ---> Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Operator '~' cannot be applied to operand of type 'double'
+   at CallSite.Target(Closure, CallSite, Object)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at MSILEmulator.Instructions.Logic.Not.Emulate(Context ctx) in C:\Users\victim\Documents\GitHub\UnconfuserEx\MSILEmulator\Instructions\Logic\Not.cs:line 15
+   at MSILEmulator.ILMethod.EmulateInstruction(Context ctx, Instruction instr, Int32 index) in C:\Users\victim\Documents\GitHub\UnconfuserEx\MSILEmulator\ILMethod.cs:line 165
+   at MSILEmulator.ILMethod.Emulate() in C:\Users\victim\Documents\GitHub\UnconfuserEx\MSILEmulator\ILMethod.cs:line 58
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.GetFieldHash(FieldDef field) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 121
+   --- End of inner exception stack trace ---
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.GetFieldHash(FieldDef field) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 127
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.GetMethodMDToken(FieldDef field) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 97
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.ResolveAllDelegates() in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 102
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.Remove(ModuleDefMD& module) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 55
+   at UnConfuserEx.UnConfuserEx.Main(String[] args) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\UnConfuserEx.cs:line 70[0m

@@ -10,8 +10,8 @@ namespace MSILEmulator.Instructions.Logic
     {
         public static void Emulate(Context ctx)
         {
-            var shift = (int)ctx.Stack.Pop();
-            var val = (int)ctx.Stack.Pop();
+            dynamic shift = ctx.Stack.Pop();
+            dynamic val = ctx.Stack.Pop();
 
             ctx.Stack.Push(val << shift);
         }

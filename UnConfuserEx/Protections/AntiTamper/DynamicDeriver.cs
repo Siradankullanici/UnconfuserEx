@@ -22,7 +22,7 @@ namespace UnConfuserEx.Protections.AntiTamper
             SortedSet<int> arrays = new();
             for (int i = 0; i < derivation.Count - 2; i++)
             {
-                if (derivation[i].OpCode == OpCodes.Ldloc_S
+                if (derivation[i].IsLdloc()
                     && derivation[i + 2].OpCode == OpCodes.Ldelem_U4)
                 {
                     arrays.Add(((Local)derivation[i].Operand).Index);

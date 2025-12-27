@@ -35,7 +35,11 @@ namespace UnConfuserEx
 
             // Load the module
             ModuleContext context = new();
+            context.AssemblyResolver = new AssemblyResolver();
+            context.Resolver = new Resolver(context.AssemblyResolver);
+            
             ModuleDefMD module = ModuleDefMD.Load(path, context);
+            ((AssemblyResolver)context.AssemblyResolver).AddToCache(module);
 
             var pipeline = new List<IProtection>
             {
@@ -77,6 +81,7 @@ namespace UnConfuserEx
                     {
                         Logger.Fatal($"Caught exception when trying to remove {p.Name} protection");
                         Logger.Error(ex.ToString());
+                        File.AppendAllText("error.log", $"[Protection {p.Name}] {ex}\n");
                         return 1;
                     }
                 }
@@ -103,13 +108,24 @@ namespace UnConfuserEx
                 {
                     NativeModuleWriterOptions writerOptions = new NativeModuleWriterOptions(module, true);
                     //writerOptions.Logger = DummyLogger.NoThrowInstance;
-                    module.NativeWrite(newPath, writerOptions);
+                    try
+                    {
+                        module.NativeWrite(newPath, writerOptions);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Warn($"Standard NativeWrite failed: {ex.Message}. Retrying without token preservation...");
+                        writerOptions = new NativeModuleWriterOptions(module, false);
+                        writerOptions.Logger = DummyLogger.NoThrowInstance;
+                        module.NativeWrite(newPath, writerOptions);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Logger.Error("Failed to write module");
                 Logger.Error(ex.ToString());
+                File.AppendAllText("error.log", $"[ModuleWriter] {ex}\n");
                 return 1;
             }
             Logger.Info("Deobfuscated module successfully written");

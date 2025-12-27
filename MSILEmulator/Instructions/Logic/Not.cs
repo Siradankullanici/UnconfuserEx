@@ -10,7 +10,7 @@ namespace MSILEmulator.Instructions.Logic
     {
         public static void Emulate(Context ctx)
         {
-            int val = (int)ctx.Stack.Pop();
+            dynamic val = ctx.Stack.Pop();
 
             ctx.Stack.Push(~val);
         }

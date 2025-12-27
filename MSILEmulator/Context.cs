@@ -13,6 +13,7 @@ namespace MSILEmulator
         public Dictionary<int, object> Locals = new();
         public Dictionary<uint, int> Offsets = new();
         public Stack<object> Stack = new();
+        public object? LastStoredValue;
 
         public Context(IList<Instruction> instructions)
         {

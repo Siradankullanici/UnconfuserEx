@@ -11,8 +11,8 @@ namespace MSILEmulator.Instructions.Arithmetic
     {
         public static void Emulate(Context ctx)
         {
-            int val2 = (int)ctx.Stack.Pop();
-            int val1 = (int)ctx.Stack.Pop();
+            dynamic val2 = ctx.Stack.Pop();
+            dynamic val1 = ctx.Stack.Pop();
 
             ctx.Stack.Push(val1 + val2);
         }

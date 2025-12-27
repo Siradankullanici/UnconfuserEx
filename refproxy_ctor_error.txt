@@ -1,0 +1,104 @@
+IL_0000: ldarg.0
+IL_0001: call System.Void System.Attribute::.ctor()
+IL_0006: ldarg.0
+IL_0007: ldarg.1
+IL_0008: nop
+IL_0009: ldc.r8 1966636048,293557
+IL_0012: ldc.r8 983318034,5
+IL_001B: call System.Double System.Math::Log(System.Double)
+IL_0020: add
+IL_0021: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_0026: not
+IL_0027: neg
+IL_0028: nop
+IL_0029: ldc.r8 -968844936
+IL_0032: ldc.r8 -322948312
+IL_003B: sub
+IL_003C: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_0041: nop
+IL_0042: ldc.r8 180698948
+IL_004B: ldc.r8 180698948
+IL_0054: call System.Double System.Math::Ceiling(System.Double)
+IL_0059: add
+IL_005A: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_005F: nop
+IL_0060: ldc.r8 317842335
+IL_0069: ldc.r8 317842335
+IL_0072: call System.Double System.Math::Abs(System.Double)
+IL_0077: add
+IL_0078: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_007D: add
+IL_007E: xor
+IL_007F: sub
+IL_0080: not
+IL_0081: xor
+IL_0082: nop
+IL_0083: ldc.r8 154910547,6076325
+IL_008C: ldc.r8 77455273,5
+IL_0095: call System.Double System.Math::Cos(System.Double)
+IL_009A: add
+IL_009B: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_00A0: nop
+IL_00A1: ldc.r8 650839126,1021781
+IL_00AA: ldc.r8 325419561
+IL_00B3: call System.Double System.Math::Tan(System.Double)
+IL_00B8: sub
+IL_00B9: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_00BE: nop
+IL_00BF: ldc.r8 1103662706,6590633
+IL_00C8: ldc.r8 551843099
+IL_00D1: call System.Double System.Math::Sqrt(System.Double)
+IL_00D6: add
+IL_00D7: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_00DC: xor
+IL_00DD: nop
+IL_00DE: ldc.r8 895812820,5
+IL_00E7: ldc.r8 298604273,5
+IL_00F0: sub
+IL_00F1: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_00F6: neg
+IL_00F7: sub
+IL_00F8: mul
+IL_00F9: xor
+IL_00FA: nop
+IL_00FB: ldstr "];4$wif/28Q!HhH"
+IL_0100: stloc.0
+IL_0101: ldloc.0
+IL_0102: ldstr "$ZQqm6p2cn&E6U/"
+IL_0107: call System.Boolean System.String::op_Equality(System.String,System.String)
+IL_010C: brtrue.s IL_0115
+IL_010E: ldc.i4 -439448830
+IL_0113: br.s IL_011A
+IL_0115: ldc.i4 -439448829
+IL_011A: stloc.1
+IL_011B: ldc.i4 -439448830
+IL_0120: ldstr "E8[Q10*W1Z9.Bf6"
+IL_0125: stloc.2
+IL_0126: ldloc.2
+IL_0127: ldstr "fmz,p@[UiZ$1w8]"
+IL_012C: call System.Boolean System.String::op_Equality(System.String,System.String)
+IL_0131: brtrue.s IL_013A
+IL_0133: ldc.i4 186472065
+IL_0138: br.s IL_013F
+IL_013A: ldc.i4 186472066
+IL_013F: stloc.3
+IL_0140: ldc.i4 186472065
+IL_0145: xor
+IL_0146: conv.i4
+IL_0147: mul
+IL_0148: nop
+IL_0149: ldc.r8 1698721862,648089
+IL_0152: ldc.r8 849360931
+IL_015B: call System.Double System.Math::Cos(System.Double)
+IL_0160: add
+IL_0161: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_0166: nop
+IL_0167: ldc.r8 1077363209,2346091
+IL_0170: ldc.r8 538693209,5
+IL_0179: call System.Double System.Math::Sqrt(System.Double)
+IL_017E: add
+IL_017F: call System.Int32 System.Convert::ToInt32(System.Double)
+IL_0184: mul
+IL_0185: xor
+IL_0186: stfld System.Int32 Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogrHThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogrHᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ::Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogsHThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogsHᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ
+IL_018B: ret

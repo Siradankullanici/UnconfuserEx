@@ -1,0 +1,832 @@
+Handler: System.Void ?0?::Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogEkThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogEkᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ(System.RuntimeFieldHandle,System.Byte)
+IL_0000: ldc.i4 -79348
+IL_0005: ldc.i4 71440
+IL_000A: add
+IL_000B: ldc.i4 7908
+IL_0010: add
+IL_0011: stloc.s V_23
+IL_0013: br IL_05EC
+IL_0018: nop
+IL_0019: ldloc.s V_23
+IL_001B: ldc.i4 36353
+IL_0020: ldc.i4 26141
+IL_0025: add
+IL_0026: ldc.i4 62489
+IL_002B: sub
+IL_002C: ceq
+IL_002E: brfalse.s IL_0054
+IL_0030: ldloc.3
+IL_0031: ldloc.0
+IL_0032: ldc.i4.0
+IL_0033: callvirt System.Object[] System.Reflection.MemberInfo::GetCustomAttributes(System.Boolean)
+IL_0038: ldc.i4.0
+IL_0039: ldelem.ref
+IL_003A: callvirt System.Int32 System.Object::GetHashCode()
+IL_003F: mul
+IL_0040: stloc.3
+IL_0041: ldc.i4 -5466
+IL_0046: ldc.i4 49636
+IL_004B: add
+IL_004C: ldc.i4 44164
+IL_0051: sub
+IL_0052: stloc.s V_23
+IL_0054: nop
+IL_0055: ldloc.s V_23
+IL_0057: ldc.i4 6614
+IL_005C: ldc.i4 8768
+IL_0061: add
+IL_0062: ldc.i4 15362
+IL_0067: sub
+IL_0068: ceq
+IL_006A: brfalse.s IL_0082
+IL_006C: ldc.i4.0
+IL_006D: stloc.s V_19
+IL_006F: ldc.i4 5613
+IL_0074: ldc.i4 82538
+IL_0079: add
+IL_007A: ldc.i4 88130
+IL_007F: sub
+IL_0080: stloc.s V_23
+IL_0082: nop
+IL_0083: ldloc.s V_23
+IL_0085: ldc.i4 -145716
+IL_008A: ldc.i4 94100
+IL_008F: add
+IL_0090: ldc.i4 51619
+IL_0095: add
+IL_0096: ceq
+IL_0098: brfalse.s IL_00B1
+IL_009A: ldloc.1
+IL_009B: ldlen
+IL_009C: conv.i4
+IL_009D: stloc.2
+IL_009E: ldc.i4 54888
+IL_00A3: ldc.i4 14768
+IL_00A8: add
+IL_00A9: ldc.i4 69652
+IL_00AE: sub
+IL_00AF: stloc.s V_23
+IL_00B1: nop
+IL_00B2: ldloc.s V_23
+IL_00B4: ldc.i4 -119335
+IL_00B9: ldc.i4 20766
+IL_00BE: add
+IL_00BF: ldc.i4 98577
+IL_00C4: add
+IL_00C5: ceq
+IL_00C7: brfalse.s IL_00E5
+IL_00C9: ldloc.s V_4
+IL_00CB: callvirt System.Boolean System.Reflection.MethodBase::get_IsStatic()
+IL_00D0: brfalse.s IL_00FD
+IL_00D2: ldc.i4 62904
+IL_00D7: ldc.i4 9906
+IL_00DC: add
+IL_00DD: ldc.i4 72801
+IL_00E2: sub
+IL_00E3: stloc.s V_23
+IL_00E5: nop
+IL_00E6: ldloc.s V_23
+IL_00E8: ldc.i4 48529
+IL_00ED: ldc.i4 18066
+IL_00F2: add
+IL_00F3: ldc.i4 66584
+IL_00F8: sub
+IL_00F9: ceq
+IL_00FB: brfalse.s IL_0113
+IL_00FD: ldnull
+IL_00FE: stloc.s V_6
+IL_0100: ldc.i4 -12472
+IL_0105: ldc.i4 34200
+IL_010A: add
+IL_010B: ldc.i4 21716
+IL_0110: sub
+IL_0111: stloc.s V_23
+IL_0113: nop
+IL_0114: ldloc.s V_23
+IL_0116: ldc.i4 -109753
+IL_011B: ldc.i4 51919
+IL_0120: add
+IL_0121: ldc.i4 57857
+IL_0126: add
+IL_0127: ceq
+IL_0129: brfalse.s IL_0144
+IL_012B: ldloc.s V_19
+IL_012D: ldc.i4.1
+IL_012E: add
+IL_012F: stloc.s V_19
+IL_0131: ldc.i4 -7929
+IL_0136: ldc.i4 22010
+IL_013B: add
+IL_013C: ldc.i4 14057
+IL_0141: sub
+IL_0142: stloc.s V_23
+IL_0144: nop
+IL_0145: ldloc.s V_23
+IL_0147: ldc.i4 -108602
+IL_014C: ldc.i4 32064
+IL_0151: add
+IL_0152: ldc.i4 76553
+IL_0157: add
+IL_0158: ceq
+IL_015A: brfalse.s IL_0174
+IL_015C: br IL_0627
+IL_0161: ldc.i4 -21686
+IL_0166: ldc.i4 44701
+IL_016B: add
+IL_016C: ldc.i4 22999
+IL_0171: sub
+IL_0172: stloc.s V_23
+IL_0174: nop
+IL_0175: ldloc.s V_23
+IL_0177: ldc.i4 -22694
+IL_017C: ldc.i4 98122
+IL_0181: add
+IL_0182: ldc.i4 75416
+IL_0187: sub
+IL_0188: ceq
+IL_018A: brfalse.s IL_01A2
+IL_018C: ldnull
+IL_018D: stloc.s V_7
+IL_018F: ldc.i4 -41047
+IL_0194: ldc.i4 83368
+IL_0199: add
+IL_019A: ldc.i4 42308
+IL_019F: sub
+IL_01A0: stloc.s V_23
+IL_01A2: nop
+IL_01A3: ldloc.s V_23
+IL_01A5: ldc.i4 -5224
+IL_01AA: ldc.i4 981
+IL_01AF: add
+IL_01B0: ldc.i4 4265
+IL_01B5: add
+IL_01B6: ceq
+IL_01B8: brfalse.s IL_01DC
+IL_01BA: ldloc.s V_7
+IL_01BC: ldloc.s V_19
+IL_01BE: ldloc.s V_17
+IL_01C0: ldloc.s V_19
+IL_01C2: ldelem.ref
+IL_01C3: callvirt System.Type System.Reflection.ParameterInfo::get_ParameterType()
+IL_01C8: stelem.ref
+IL_01C9: ldc.i4 -99977
+IL_01CE: ldc.i4 16853
+IL_01D3: add
+IL_01D4: ldc.i4 83147
+IL_01D9: add
+IL_01DA: stloc.s V_23
+IL_01DC: nop
+IL_01DD: ldloc.s V_23
+IL_01DF: ldc.i4 29311
+IL_01E4: ldc.i4 9331
+IL_01E9: add
+IL_01EA: ldc.i4 38632
+IL_01EF: sub
+IL_01F0: ceq
+IL_01F2: brfalse.s IL_0208
+IL_01F4: ret
+IL_01F5: ldc.i4 -73286
+IL_01FA: ldc.i4 89687
+IL_01FF: add
+IL_0200: ldc.i4 16390
+IL_0205: sub
+IL_0206: stloc.s V_23
+IL_0208: nop
+IL_0209: ldloc.s V_23
+IL_020B: ldc.i4 -80879
+IL_0210: ldc.i4 77579
+IL_0215: add
+IL_0216: ldc.i4 3302
+IL_021B: add
+IL_021C: ceq
+IL_021E: brfalse.s IL_0245
+IL_0220: ldloc.0
+IL_0221: callvirt System.Reflection.Module System.Reflection.MemberInfo::get_Module()
+IL_0226: ldloc.0
+IL_0227: callvirt System.Int32 System.Reflection.MemberInfo::get_MetadataToken()
+IL_022C: callvirt System.Byte[] System.Reflection.Module::ResolveSignature(System.Int32)
+IL_0231: stloc.1
+IL_0232: ldc.i4 -54766
+IL_0237: ldc.i4 93645
+IL_023C: add
+IL_023D: ldc.i4 38876
+IL_0242: sub
+IL_0243: stloc.s V_23
+IL_0245: nop
+IL_0246: ldloc.s V_23
+IL_0248: ldc.i4 -64258
+IL_024D: ldc.i4 30272
+IL_0252: add
+IL_0253: ldc.i4 33987
+IL_0258: add
+IL_0259: ceq
+IL_025B: brfalse.s IL_0277
+IL_025D: ldarg.0
+IL_025E: call System.Reflection.FieldInfo System.Reflection.FieldInfo::GetFieldFromHandle(System.RuntimeFieldHandle)
+IL_0263: stloc.0
+IL_0264: ldc.i4 -57307
+IL_0269: ldc.i4 37561
+IL_026E: add
+IL_026F: ldc.i4 19748
+IL_0274: add
+IL_0275: stloc.s V_23
+IL_0277: nop
+IL_0278: ldloc.s V_23
+IL_027A: ldc.i4 -122118
+IL_027F: ldc.i4 93099
+IL_0284: add
+IL_0285: ldc.i4 29028
+IL_028A: add
+IL_028B: ceq
+IL_028D: brfalse.s IL_02B7
+IL_028F: ldloc.0
+IL_0290: ldnull
+IL_0291: ldloc.s V_5
+IL_0293: ldloc.s V_4
+IL_0295: castclass System.Reflection.MethodInfo
+IL_029A: call System.Delegate System.Delegate::CreateDelegate(System.Type,System.Reflection.MethodInfo)
+IL_029F: callvirt System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object)
+IL_02A4: ldc.i4 -17952
+IL_02A9: ldc.i4 75578
+IL_02AE: add
+IL_02AF: ldc.i4 57616
+IL_02B4: sub
+IL_02B5: stloc.s V_23
+IL_02B7: nop
+IL_02B8: ldloc.s V_23
+IL_02BA: ldc.i4 -89447
+IL_02BF: ldc.i4 97384
+IL_02C4: add
+IL_02C5: ldc.i4 7933
+IL_02CA: sub
+IL_02CB: ceq
+IL_02CD: brfalse IL_0366
+IL_02D2: ldloc.0
+IL_02D3: callvirt System.Type[] System.Reflection.FieldInfo::GetOptionalCustomModifiers()
+IL_02D8: ldc.i4.0
+IL_02D9: ldelem.ref
+IL_02DA: callvirt System.Int32 System.Reflection.MemberInfo::get_MetadataToken()
+IL_02DF: ldloc.0
+IL_02E0: callvirt System.String System.Reflection.MemberInfo::get_Name()
+IL_02E5: ldc.i4.2
+IL_02E6: callvirt System.Char System.String::get_Chars(System.Int32)
+IL_02EB: ldloc.1
+IL_02EC: ldloc.2
+IL_02ED: ldc.i4.1
+IL_02EE: sub
+IL_02EF: dup
+IL_02F0: stloc.2
+IL_02F1: ldelem.u1
+IL_02F2: xor
+IL_02F3: ldc.i4.0
+IL_02F4: ldc.i4.s 31
+IL_02F6: and
+IL_02F7: shl
+IL_02F8: add
+IL_02F9: ldloc.0
+IL_02FA: callvirt System.String System.Reflection.MemberInfo::get_Name()
+IL_02FF: ldc.i4.1
+IL_0300: callvirt System.Char System.String::get_Chars(System.Int32)
+IL_0305: ldloc.1
+IL_0306: ldloc.2
+IL_0307: ldc.i4.1
+IL_0308: sub
+IL_0309: dup
+IL_030A: stloc.2
+IL_030B: ldelem.u1
+IL_030C: xor
+IL_030D: ldc.i4.s 16
+IL_030F: ldc.i4.s 31
+IL_0311: and
+IL_0312: shl
+IL_0313: add
+IL_0314: ldloc.0
+IL_0315: callvirt System.String System.Reflection.MemberInfo::get_Name()
+IL_031A: ldc.i4.4
+IL_031B: callvirt System.Char System.String::get_Chars(System.Int32)
+IL_0320: ldloc.1
+IL_0321: ldloc.2
+IL_0322: ldc.i4.1
+IL_0323: sub
+IL_0324: dup
+IL_0325: stloc.2
+IL_0326: ldelem.u1
+IL_0327: xor
+IL_0328: ldc.i4.s 24
+IL_032A: ldc.i4.s 31
+IL_032C: and
+IL_032D: shl
+IL_032E: add
+IL_032F: ldloc.2
+IL_0330: ldc.i4.1
+IL_0331: sub
+IL_0332: stloc.2
+IL_0333: ldloc.0
+IL_0334: callvirt System.String System.Reflection.MemberInfo::get_Name()
+IL_0339: ldc.i4.0
+IL_033A: callvirt System.Char System.String::get_Chars(System.Int32)
+IL_033F: ldloc.1
+IL_0340: ldloc.2
+IL_0341: ldc.i4.1
+IL_0342: sub
+IL_0343: dup
+IL_0344: stloc.2
+IL_0345: ldelem.u1
+IL_0346: xor
+IL_0347: ldc.i4.8
+IL_0348: ldc.i4.s 31
+IL_034A: and
+IL_034B: shl
+IL_034C: add
+IL_034D: call System.Int32 ?0?::Beds-Protector-rown-FoxᅠᅠᅠᅠᅠJumped-Over-The-Lazy-DogfkThe-ᅠᅠᅠᅠQuick-Brown-ᅠᅠᅠᅠᅠᅠe-Lazy-DogfkᅠᅠᅠᅠᅠThe-Quick--Over-The-Laᅠᅠᅠᅠzyᅠ(System.Int32)
+IL_0352: stloc.3
+IL_0353: ldc.i4 19837
+IL_0358: ldc.i4 24276
+IL_035D: add
+IL_035E: ldc.i4 44108
+IL_0363: sub
+IL_0364: stloc.s V_23
+IL_0366: nop
+IL_0367: ldloc.s V_23
+IL_0369: ldc.i4 18590
+IL_036E: ldc.i4 17451
+IL_0373: add
+IL_0374: ldc.i4 36022
+IL_0379: sub
+IL_037A: ceq
+IL_037C: brfalse.s IL_039C
+IL_037E: ldloc.s V_17
+IL_0380: ldlen
+IL_0381: conv.i4
+IL_0382: newarr System.Type
+IL_0387: stloc.s V_7
+IL_0389: ldc.i4 -73312
+IL_038E: ldc.i4 74710
+IL_0393: add
+IL_0394: ldc.i4 1378
+IL_0399: sub
+IL_039A: stloc.s V_23
+IL_039C: nop
+IL_039D: ldloc.s V_23
+IL_039F: ldc.i4 -16800
+IL_03A4: ldc.i4 75424
+IL_03A9: add
+IL_03AA: ldc.i4 58606
+IL_03AF: sub
+IL_03B0: ceq
+IL_03B2: brfalse.s IL_03D0
+IL_03B4: ldloc.s V_16
+IL_03B6: callvirt System.Reflection.ParameterInfo[] System.Reflection.MethodBase::GetParameters()
+IL_03BB: stloc.s V_17
+IL_03BD: ldc.i4 -123928
+IL_03C2: ldc.i4 60163
+IL_03C7: add
+IL_03C8: ldc.i4 63784
+IL_03CD: add
+IL_03CE: stloc.s V_23
+IL_03D0: nop
+IL_03D1: ldloc.s V_23
+IL_03D3: ldc.i4 -4217
+IL_03D8: ldc.i4 19696
+IL_03DD: add
+IL_03DE: ldc.i4 15463
+IL_03E3: sub
+IL_03E4: ceq
+IL_03E6: brfalse.s IL_0402
+IL_03E8: ldloc.s V_14
+IL_03EA: ldloc.s V_15
+IL_03EC: ldelem.ref
+IL_03ED: stloc.s V_16
+IL_03EF: ldc.i4 -78990
+IL_03F4: ldc.i4 36540
+IL_03F9: add
+IL_03FA: ldc.i4 42467
+IL_03FF: add
+IL_0400: stloc.s V_23
+IL_0402: nop
+IL_0403: ldloc.s V_23
+IL_0405: ldc.i4 -85860
+IL_040A: ldc.i4 8320
+IL_040F: add
+IL_0410: ldc.i4 77546
+IL_0415: add
+IL_0416: ceq
+IL_0418: brfalse.s IL_043B
+IL_041A: ldloc.0
+IL_041B: callvirt System.Reflection.Module System.Reflection.MemberInfo::get_Module()
+IL_0420: ldloc.3
+IL_0421: callvirt System.Reflection.MethodBase System.Reflection.Module::ResolveMethod(System.Int32)
+IL_0426: stloc.s V_4
+IL_0428: ldc.i4 -9900
+IL_042D: ldc.i4 84516
+IL_0432: add
+IL_0433: ldc.i4 74609
+IL_0438: sub
+IL_0439: stloc.s V_23
+IL_043B: nop
+IL_043C: ldloc.s V_23
+IL_043E: ldc.i4 -49652
+IL_0443: ldc.i4 54119
+IL_0448: add
+IL_0449: ldc.i4 4450
+IL_044E: sub
+IL_044F: ceq
+IL_0451: brfalse.s IL_0474
+IL_0453: ldloc.s V_16
+IL_0455: callvirt System.Type System.Reflection.MemberInfo::get_DeclaringType()
+IL_045A: ldloc.s V_5
+IL_045C: bne.un IL_0621
+IL_0461: ldc.i4 -177869
+IL_0466: ldc.i4 81016
+IL_046B: add
+IL_046C: ldc.i4 96871
+IL_0471: add
+IL_0472: stloc.s V_23
+IL_0474: nop
+IL_0475: ldloc.s V_23
+IL_0477: ldc.i4 -49790
+IL_047C: ldc.i4 8456
+IL_0481: add
+IL_0482: ldc.i4 41348
+IL_0487: add
+IL_0488: ceq
+IL_048A: brfalse.s IL_04A2
+IL_048C: ldc.i4.0
+IL_048D: stloc.s V_15
+IL_048F: ldc.i4 -154732
+IL_0494: ldc.i4 59194
+IL_0499: add
+IL_049A: ldc.i4 95553
+IL_049F: add
+IL_04A0: stloc.s V_23
+IL_04A2: nop
+IL_04A3: ldloc.s V_23
+IL_04A5: ldc.i4 -62239
+IL_04AA: ldc.i4 2853
+IL_04AF: add
+IL_04B0: ldc.i4 59411
+IL_04B5: add
+IL_04B6: ceq
+IL_04B8: brfalse.s IL_04D6
+IL_04BA: ldloc.s V_4
+IL_04BC: callvirt System.Type System.Reflection.MemberInfo::get_DeclaringType()
+IL_04C1: stloc.s V_18
+IL_04C3: ldc.i4 -72910
+IL_04C8: ldc.i4 32608
+IL_04CD: add
+IL_04CE: ldc.i4 40328
+IL_04D3: add
+IL_04D4: stloc.s V_23
+IL_04D6: nop
+IL_04D7: ldloc.s V_23
+IL_04D9: ldc.i4 -52187
+IL_04DE: ldc.i4 61142
+IL_04E3: add
+IL_04E4: ldc.i4 8942
+IL_04E9: sub
+IL_04EA: ceq
+IL_04EC: brfalse.s IL_0510
+IL_04EE: ldloc.0
+IL_04EF: callvirt System.Type System.Reflection.FieldInfo::get_FieldType()
+IL_04F4: ldc.i4.s 36
+IL_04F6: callvirt System.Reflection.MethodInfo[] System.Type::GetMethods(System.Reflection.BindingFlags)
+IL_04FB: stloc.s V_14
+IL_04FD: ldc.i4 -72536
+IL_0502: ldc.i4 65243
+IL_0507: add
+IL_0508: ldc.i4 7307
+IL_050D: add
+IL_050E: stloc.s V_23
+IL_0510: nop
+IL_0511: ldloc.s V_23
+IL_0513: ldc.i4 -123747
+IL_0518: ldc.i4 42152
+IL_051D: add
+IL_051E: ldc.i4 81602
+IL_0523: add
+IL_0524: ceq
+IL_0526: brfalse.s IL_0543
+IL_0528: ldloc.0
+IL_0529: callvirt System.Type System.Reflection.FieldInfo::get_FieldType()
+IL_052E: stloc.s V_5
+IL_0530: ldc.i4 4342
+IL_0535: ldc.i4 65465
+IL_053A: add
+IL_053B: ldc.i4 69799
+IL_0540: sub
+IL_0541: stloc.s V_23
+IL_0543: nop
+IL_0544: ldloc.s V_23
+IL_0546: ldc.i4 -55227
+IL_054B: ldc.i4 66561
+IL_0550: add
+IL_0551: ldc.i4 11310
+IL_0556: sub
+IL_0557: ceq
+IL_0559: brfalse.s IL_0579
+IL_055B: ldloc.s V_19
+IL_055D: ldloc.s V_7
+IL_055F: ldlen
+IL_0560: conv.i4
+IL_0561: blt IL_01BA
+IL_0566: ldc.i4 17538
+IL_056B: ldc.i4 61413
+IL_0570: add
+IL_0571: ldc.i4 78926
+IL_0576: sub
+IL_0577: stloc.s V_23
+IL_0579: nop
+IL_057A: ldloc.s V_23
+IL_057C: ldc.i4 -146979
+IL_0581: ldc.i4 96927
+IL_0586: add
+IL_0587: ldc.i4 50073
+IL_058C: add
+IL_058D: ceq
+IL_058F: brfalse.s IL_05A6
+IL_0591: br.s IL_055B
+IL_0593: ldc.i4 -75530
+IL_0598: ldc.i4 61735
+IL_059D: add
+IL_059E: ldc.i4 13817
+IL_05A3: add
+IL_05A4: stloc.s V_23
+IL_05A6: nop
+IL_05A7: ldloc.s V_23
+IL_05A9: ldc.i4 -50717
+IL_05AE: ldc.i4 22435
+IL_05B3: add
+IL_05B4: ldc.i4 28282
+IL_05B9: add
+IL_05BA: ceq
+IL_05BC: brfalse.s IL_05D2
+IL_05BE: nop
+IL_05BF: ldc.i4 77623
+IL_05C4: ldc.i4 19910
+IL_05C9: add
+IL_05CA: ldc.i4 97532
+IL_05CF: sub
+IL_05D0: stloc.s V_23
+IL_05D2: nop
+IL_05D3: ldloc.s V_23
+IL_05D5: ldc.i4 -84312
+IL_05DA: ldc.i4 83056
+IL_05DF: add
+IL_05E0: ldc.i4 1282
+IL_05E5: add
+IL_05E6: ceq
+IL_05E8: brfalse.s IL_05EC
+IL_05EA: br.s IL_05F1
+IL_05EC: br IL_0018
+IL_05F1: ldstr ""
+IL_05F6: ldloc.s V_16
+IL_05F8: callvirt System.Type System.Reflection.MethodInfo::get_ReturnType()
+IL_05FD: ldloc.s V_7
+IL_05FF: ldloc.s V_18
+IL_0601: callvirt System.Boolean System.Type::get_IsInterface()
+IL_0606: brtrue.s IL_0615
+IL_0608: ldloc.s V_18
+IL_060A: callvirt System.Boolean System.Type::get_IsArray()
+IL_060F: brtrue.s IL_0615
+IL_0611: ldloc.s V_18
+IL_0613: br.s IL_0617
+IL_0615: ldloc.s V_5
+IL_0617: ldc.i4.1
+IL_0618: newobj System.Void System.Reflection.Emit.DynamicMethod::.ctor(System.String,System.Type,System.Type[],System.Type,System.Boolean)
+IL_061D: stloc.s V_6
+IL_061F: br.s IL_0632
+IL_0621: ldloc.s V_15
+IL_0623: ldc.i4.1
+IL_0624: add
+IL_0625: stloc.s V_15
+IL_0627: ldloc.s V_15
+IL_0629: ldloc.s V_14
+IL_062B: ldlen
+IL_062C: conv.i4
+IL_062D: blt IL_03E8
+IL_0632: ldloc.s V_6
+IL_0634: callvirt System.Reflection.Emit.DynamicILInfo System.Reflection.Emit.DynamicMethod::GetDynamicILInfo()
+IL_0639: stloc.s V_8
+IL_063B: ldloc.s V_8
+IL_063D: ldc.i4.2
+IL_063E: newarr System.Byte
+IL_0643: dup
+IL_0644: ldc.i4.0
+IL_0645: ldc.i4.7
+IL_0646: stelem.i1
+IL_0647: callvirt System.Void System.Reflection.Emit.DynamicILInfo::SetLocalSignature(System.Byte[])
+IL_064C: ldc.i4.7
+IL_064D: ldloc.s V_7
+IL_064F: ldlen
+IL_0650: conv.i4
+IL_0651: mul
+IL_0652: ldc.i4.6
+IL_0653: add
+IL_0654: newarr System.Byte
+IL_0659: stloc.s V_9
+IL_065B: ldc.i4.0
+IL_065C: stloc.s V_10
+IL_065E: ldloc.s V_4
+IL_0660: callvirt System.Reflection.ParameterInfo[] System.Reflection.MethodBase::GetParameters()
+IL_0665: stloc.s V_11
+IL_0667: ldloc.s V_4
+IL_0669: callvirt System.Boolean System.Reflection.MethodBase::get_IsConstructor()
+IL_066E: brtrue.s IL_0673
+IL_0670: ldc.i4.m1
+IL_0671: br.s IL_0674
+IL_0673: ldc.i4.0
+IL_0674: stloc.s V_12
+IL_0676: ldc.i4.0
+IL_0677: stloc.s V_20
+IL_0679: br IL_0738
+IL_067E: ldloc.s V_9
+IL_0680: ldloc.s V_10
+IL_0682: dup
+IL_0683: ldc.i4.1
+IL_0684: add
+IL_0685: stloc.s V_10
+IL_0687: ldc.i4.s 14
+IL_0689: stelem.i1
+IL_068A: ldloc.s V_9
+IL_068C: ldloc.s V_10
+IL_068E: dup
+IL_068F: ldc.i4.1
+IL_0690: add
+IL_0691: stloc.s V_10
+IL_0693: ldloc.s V_20
+IL_0695: conv.u1
+IL_0696: stelem.i1
+IL_0697: ldloc.s V_12
+IL_0699: ldc.i4.m1
+IL_069A: beq.s IL_06A8
+IL_069C: ldloc.s V_11
+IL_069E: ldloc.s V_12
+IL_06A0: ldelem.ref
+IL_06A1: callvirt System.Type System.Reflection.ParameterInfo::get_ParameterType()
+IL_06A6: br.s IL_06AF
+IL_06A8: ldloc.s V_4
+IL_06AA: callvirt System.Type System.Reflection.MemberInfo::get_DeclaringType()
+IL_06AF: stloc.s V_21
+IL_06B1: ldloc.s V_21
+IL_06B3: callvirt System.Boolean System.Type::get_IsClass()
+IL_06B8: brfalse.s IL_0726
+IL_06BA: ldloc.s V_21
+IL_06BC: callvirt System.Boolean System.Type::get_IsPointer()
+IL_06C1: brtrue.s IL_0726
+IL_06C3: ldloc.s V_21
+IL_06C5: callvirt System.Boolean System.Type::get_IsByRef()
+IL_06CA: brtrue.s IL_0726
+IL_06CC: ldloc.s V_8
+IL_06CE: ldloc.s V_21
+IL_06D0: callvirt System.RuntimeTypeHandle System.Type::get_TypeHandle()
+IL_06D5: callvirt System.Int32 System.Reflection.Emit.DynamicILInfo::GetTokenFor(System.RuntimeTypeHandle)
+IL_06DA: stloc.s V_22
+IL_06DC: ldloc.s V_9
+IL_06DE: ldloc.s V_10
+IL_06E0: dup
+IL_06E1: ldc.i4.1
+IL_06E2: add
+IL_06E3: stloc.s V_10
+IL_06E5: ldc.i4.s 116
+IL_06E7: stelem.i1
+IL_06E8: ldloc.s V_9
+IL_06EA: ldloc.s V_10
+IL_06EC: dup
+IL_06ED: ldc.i4.1
+IL_06EE: add
+IL_06EF: stloc.s V_10
+IL_06F1: ldloc.s V_22
+IL_06F3: conv.u1
+IL_06F4: stelem.i1
+IL_06F5: ldloc.s V_9
+IL_06F7: ldloc.s V_10
+IL_06F9: dup
+IL_06FA: ldc.i4.1
+IL_06FB: add
+IL_06FC: stloc.s V_10
+IL_06FE: ldloc.s V_22
+IL_0700: ldc.i4.8
+IL_0701: shr
+IL_0702: conv.u1
+IL_0703: stelem.i1
+IL_0704: ldloc.s V_9
+IL_0706: ldloc.s V_10
+IL_0708: dup
+IL_0709: ldc.i4.1
+IL_070A: add
+IL_070B: stloc.s V_10
+IL_070D: ldloc.s V_22
+IL_070F: ldc.i4.s 16
+IL_0711: shr
+IL_0712: conv.u1
+IL_0713: stelem.i1
+IL_0714: ldloc.s V_9
+IL_0716: ldloc.s V_10
+IL_0718: dup
+IL_0719: ldc.i4.1
+IL_071A: add
+IL_071B: stloc.s V_10
+IL_071D: ldloc.s V_22
+IL_071F: ldc.i4.s 24
+IL_0721: shr
+IL_0722: conv.u1
+IL_0723: stelem.i1
+IL_0724: br.s IL_072C
+IL_0726: ldloc.s V_10
+IL_0728: ldc.i4.5
+IL_0729: add
+IL_072A: stloc.s V_10
+IL_072C: ldloc.s V_12
+IL_072E: ldc.i4.1
+IL_072F: add
+IL_0730: stloc.s V_12
+IL_0732: ldloc.s V_20
+IL_0734: ldc.i4.1
+IL_0735: add
+IL_0736: stloc.s V_20
+IL_0738: ldloc.s V_20
+IL_073A: ldloc.s V_7
+IL_073C: ldlen
+IL_073D: conv.i4
+IL_073E: blt IL_067E
+IL_0743: ldloc.s V_9
+IL_0745: ldloc.s V_10
+IL_0747: dup
+IL_0748: ldc.i4.1
+IL_0749: add
+IL_074A: stloc.s V_10
+IL_074C: ldloc.0
+IL_074D: callvirt System.String System.Reflection.MemberInfo::get_Name()
+IL_0752: ldc.i4.3
+IL_0753: callvirt System.Char System.String::get_Chars(System.Int32)
+IL_0758: conv.u1
+IL_0759: ldarg.1
+IL_075A: xor
+IL_075B: conv.u1
+IL_075C: stelem.i1
+IL_075D: ldloc.s V_8
+IL_075F: ldloc.s V_4
+IL_0761: callvirt System.RuntimeMethodHandle System.Reflection.MethodBase::get_MethodHandle()
+IL_0766: callvirt System.Int32 System.Reflection.Emit.DynamicILInfo::GetTokenFor(System.RuntimeMethodHandle)
+IL_076B: stloc.s V_13
+IL_076D: ldloc.s V_9
+IL_076F: ldloc.s V_10
+IL_0771: dup
+IL_0772: ldc.i4.1
+IL_0773: add
+IL_0774: stloc.s V_10
+IL_0776: ldloc.s V_13
+IL_0778: conv.u1
+IL_0779: stelem.i1
+IL_077A: ldloc.s V_9
+IL_077C: ldloc.s V_10
+IL_077E: dup
+IL_077F: ldc.i4.1
+IL_0780: add
+IL_0781: stloc.s V_10
+IL_0783: ldloc.s V_13
+IL_0785: ldc.i4.8
+IL_0786: shr
+IL_0787: conv.u1
+IL_0788: stelem.i1
+IL_0789: ldloc.s V_9
+IL_078B: ldloc.s V_10
+IL_078D: dup
+IL_078E: ldc.i4.1
+IL_078F: add
+IL_0790: stloc.s V_10
+IL_0792: ldloc.s V_13
+IL_0794: ldc.i4.s 16
+IL_0796: shr
+IL_0797: conv.u1
+IL_0798: stelem.i1
+IL_0799: ldloc.s V_9
+IL_079B: ldloc.s V_10
+IL_079D: dup
+IL_079E: ldc.i4.1
+IL_079F: add
+IL_07A0: stloc.s V_10
+IL_07A2: ldloc.s V_13
+IL_07A4: ldc.i4.s 24
+IL_07A6: shr
+IL_07A7: conv.u1
+IL_07A8: stelem.i1
+IL_07A9: ldloc.s V_9
+IL_07AB: ldloc.s V_10
+IL_07AD: ldc.i4.s 42
+IL_07AF: stelem.i1
+IL_07B0: ldloc.s V_8
+IL_07B2: ldloc.s V_9
+IL_07B4: ldloc.s V_7
+IL_07B6: ldlen
+IL_07B7: conv.i4
+IL_07B8: ldc.i4.1
+IL_07B9: add
+IL_07BA: callvirt System.Void System.Reflection.Emit.DynamicILInfo::SetCode(System.Byte[],System.Int32)
+IL_07BF: ldloc.0
+IL_07C0: ldnull
+IL_07C1: ldloc.s V_6
+IL_07C3: ldloc.s V_5
+IL_07C5: callvirt System.Delegate System.Reflection.Emit.DynamicMethod::CreateDelegate(System.Type)
+IL_07CA: callvirt System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object)
+IL_07CF: ret

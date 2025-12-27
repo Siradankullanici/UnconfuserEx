@@ -1,0 +1,79 @@
+﻿[0;36;40;2m353   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m363   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m363   [1] INFO  UnConfuserEx    - AntiTamper detected, attempting to remove[0m
+[0;32;40m365   [1] INFO  AntiTamper      - Decrypt method has 467 instructions[0m
+[0;32;40m367   [1] INFO  AntiTamper      - Found potential section hash: 0EE4CC6C at instruction 73[0m
+[0;36;40;2m368   [1] DEBUG AntiTamper      - Section 0: 16 4D 71 1F 6D 5E 44 68 - Hash: 6763E65E - Characteristics: E0000040[0m
+[0;32;40m368   [1] INFO  AntiTamper      - Found potential encrypted section by characteristics (0xE0000040): Section 0[0m
+[0;36;40;2m368   [1] DEBUG AntiTamper      - Found encrypted data in section Mqm^Dh[0m
+[0;32;40m369   [1] INFO  AntiTamper      - Found initial keys: 5CE45813, 69F16484, 6B649871, 7363D3FE[0m
+[0;36;40;2m369   [1] DEBUG AntiTamper      - Found initial decryption keys[0m
+[0;36;40;2m369   [1] DEBUG AntiTamper      - Detected deriver type is Dynamic[0m
+[0;36;40;2m382   [1] DEBUG AntiTamper      - Deriving decryption key[0m
+[0;36;40;2m443   [1] DEBUG AntiTamper      - Decrypting method bodies[0m
+[0;36;40;2m670   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;36;40;2m670   [1] DEBUG AntiTamper      - Auditing method System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá() as potential decrypt method[0m
+[0;32;40m671   [1] INFO  UnConfuserEx    - Successfully removed AntiTamper protection[0m
+[0;32;40m769   [1] INFO  UnConfuserEx    - RefProxy detected, attempting to remove[0m
+[0;36;40;2m774   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogDkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogDkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 4, 2, 1, 3], Shifts: [0, 16, 8, 24]
+[0;36;40;2m919   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogEkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogEkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [2, 1, 4, 0, 3], Shifts: [0, 16, 24, 8]
+[0;36;40;2m928   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogFkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogFkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [3, 2, 1, 4, 0], Shifts: [24, 16, 8, 0]
+[0;36;40;2m936   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogGkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogGkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [4, 1, 3, 2, 0], Shifts: [0, 24, 16, 8]
+[0;36;40;2m954   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogHkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogHkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 4, 2, 1, 3], Shifts: [24, 8, 0, 16]
+[0;36;40;2m965   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogIkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogIkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [2, 1, 0, 3, 4], Shifts: [16, 8, 24, 0]
+[0;36;40;2m974   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogJkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogJkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [3, 2, 1, 0, 4], Shifts: [0, 8, 16, 24]
+[0;36;40;2m983   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogKkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogKkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [2, 1, 3, 4, 0], Shifts: [16, 8, 24, 0]
+[0;36;40;2m990   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogLkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogLkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 1, 4, 2, 3], Shifts: [24, 16, 8, 0]
+[0;36;40;2m997   [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogMkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogMkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 3, 1, 2, 4], Shifts: [24, 8, 0, 16]
+[0;36;40;2m1006  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogNkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogNkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [2, 3, 0, 4, 1], Shifts: [0, 16, 24, 8]
+[0;36;40;2m1016  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogOkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogOkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 3, 1, 2, 4], Shifts: [0, 24, 8, 16]
+[0;36;40;2m1025  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogPkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogPkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 2, 3, 1, 4], Shifts: [16, 8, 0, 24]
+[0;36;40;2m1033  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogQkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogQkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [4, 2, 1, 0, 3], Shifts: [0, 24, 8, 16]
+[0;36;40;2m1044  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogRkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogRkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [0, 3, 2, 1, 4], Shifts: [0, 16, 8, 24]
+[0;36;40;2m1053  [1] DEBUG RefProxy        - Deobfuscating RefProxy handler System.Void ?0?::Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogSkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogSkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá(System.RuntimeFieldHandle,System.Byte)[0m
+[RefProxyHandler] Constants found. NameChars: [4, 2, 1, 3, 0], Shifts: [16, 8, 24, 0]
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Noping instruction in .cctor referencing orphaned method Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogrlThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogrlßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá (Token: 06000050)
+[RefProxyHandler] Removing problematic type sxQ=.shQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.tRQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.zRQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.0xQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.1RQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.2BQ= with duplicate metadata
+[RefProxyHandler] Removing problematic type sxQ=.2xQ= with duplicate metadata
+[RefProxyHandler] Removing nested type with invalid name from ?0?
+[RefProxyHandler] Removing corrupted property hread from 5xM=
+[RefProxyHandler] Saving temporary assembly to C:\Users\victim\AppData\Local\Temp\tmpm3t0g5.dll for dynamic analysis (Tokens NOT preserved)...
+[RefProxyHandler] Loading assembly...
+[0;31;40;1;4m3085  [1] FATAL UnConfuserEx    - Caught exception when trying to remove RefProxy protection[0m
+[0;31;40;1m3096  [1] ERROR UnConfuserEx    - System.Exception: Failed to load assembly for dynamic analysis: Enclosing type(s) not found for type 'Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogTkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogTkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá' in assembly 'º▓ªöÔêéªò ¤üªÅ¤âªéªö┬óªé¤âªÅ - 754586525497944974834832392, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+ ---> System.BadImageFormatException: Enclosing type(s) not found for type 'Beds-Protector-rown-FoxßàáßàáßàáßàáßàáJumped-Over-The-Lazy-DogTkThe-ßàáßàáßàáßàáQuick-Brown-ßàáßàáßàáßàáßàáßàáe-Lazy-DogTkßàáßàáßàáßàáßàáThe-Quick--Over-The-Laßàáßàáßàáßàázyßàá' in assembly 'º▓ªöÔêéªò ¤üªÅ¤âªéªö┬óªé¤âªÅ - 754586525497944974834832392, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(String assemblyPath)
+   at System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.EnsureAssemblyLoaded() in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 394
+   --- End of inner exception stack trace ---
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.EnsureAssemblyLoaded() in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 398
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.GetFieldHash(FieldDef field) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 500
+   at UnConfuserEx.Protections.Delegates.RefProxyHandler.GetMethodMDToken(FieldDef field) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyHandler.cs:line 482
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.ResolveAllDelegates() in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 117
+   at UnConfuserEx.Protections.Delegates.RefProxyRemover.Remove(ModuleDefMD& module) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\Protections\RefProxy\RefProxyRemover.cs:line 70
+   at UnConfuserEx.UnConfuserEx.Main(String[] args) in C:\Users\victim\Documents\GitHub\UnconfuserEx\UnConfuserEx\UnConfuserEx.cs:line 70[0m

@@ -61,6 +61,13 @@ namespace UnConfuserEx.Protections
 
                     IList<ExceptionHandler> exceptionHandlers;
                     deobfuscatedBlocks.GetCode(out decryptInstructions, out exceptionHandlers);
+
+                    if (ControlFlowRemover.IsMethodObfuscated(decryptMethod!))
+                    {
+                        Logger.Error("Decrypt method still obfuscated after control flow removal");
+                        DumpFailedMethod(decryptMethod!, "AntiTamper decrypt method still obfuscated after deobfuscation");
+                        return false;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -125,6 +132,33 @@ namespace UnConfuserEx.Protections
 
             Logger.Debug($"Decrypting method bodies");
             return DecryptSection(ref module, key, encryptedSection);
+        }
+
+        private static void DumpFailedMethod(MethodDef method, string reason)
+        {
+            try
+            {
+                var ilDump = new List<string>
+                {
+                    $"Method: {method.FullName} (Token: {method.MDToken.Raw:X8})",
+                    $"Reason: {reason}"
+                };
+
+                if (method.HasBody)
+                {
+                    foreach (var instr in method.Body.Instructions)
+                    {
+                        ilDump.Add(instr.ToString());
+                    }
+                }
+
+                File.AppendAllLines("failed_control_flow.txt", ilDump);
+                File.AppendAllText("failed_control_flow.txt", "\n----------------------------\n");
+            }
+            catch
+            {
+                // Best-effort diagnostic logging; ignore failures writing the dump.
+            }
         }
 
         private ImageSectionHeader? GetEncryptedSection(ModuleDefMD module)

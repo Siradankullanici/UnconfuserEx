@@ -113,7 +113,8 @@ namespace UnConfuserEx.Protections
             {
                 Logger.Debug(msg);
             }
-            return true;
+
+            return numFailed == 0;
         }
 
         public static bool IsMethodObfuscated(MethodDef method)

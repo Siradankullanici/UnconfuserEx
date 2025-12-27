@@ -221,7 +221,9 @@ namespace UnConfuserEx.Protections
 
             deobfuscator.Initialize(blocks);
             deobfuscator.Add(new SwitchDeobfuscator(module));
+            deobfuscator.Add(new IfChainDeobfuscator());
             deobfuscator.Deobfuscate();
+            blocks.RemoveDeadBlocks();
 
             blocks.RepartitionBlocks();
 

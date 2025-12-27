@@ -34,75 +34,55 @@ namespace UnConfuserEx.Protections.ControlFlow
 
         protected override bool Deobfuscate(Block block)
         {
-            if (block.Instructions.Count < 2) return false;
-
-            Local local = null;
-            Value startValue = null;
-            Block startResolve = null;
-            int numToRemove = 0;
-
-            var last = block.Instructions.Last();
-            var secondLast = block.Instructions[block.Instructions.Count - 2];
-
-            // Standard Pattern: ldc <v>; stloc <local>; (at end of block)
-            if (secondLast.IsLdcI4() && last.IsStloc())
+            // Scan for any ldc; stloc pattern in the block
+            for (int i = 0; i < block.Instructions.Count - 1; i++)
             {
-                local = Instr.GetLocalVar(blocks.Locals, last);
-                if (local != null) {
-                    startValue = new Int32Value(secondLast.GetLdcI4Value());
-                    startResolve = block.FallThrough;
-                    numToRemove = 2;
-                }
-            }
-            // Standard Pattern with Branch: ldc <v>; stloc <local>; br <target>;
-            else if (block.Instructions.Count >= 3)
-            {
-                var thirdLast = block.Instructions[block.Instructions.Count - 3];
-                if (thirdLast.IsLdcI4() && secondLast.IsStloc() && last.IsBr())
+                var ldc = block.Instructions[i];
+                var stloc = block.Instructions[i + 1];
+
+                if (ldc.IsLdcI4() && stloc.IsStloc())
                 {
-                    local = Instr.GetLocalVar(blocks.Locals, secondLast);
-                    if (local != null) {
-                        startValue = new Int32Value(thirdLast.GetLdcI4Value());
+                    var local = Instr.GetLocalVar(blocks.Locals, stloc);
+                    if (local == null) continue;
+
+                    var value = ldc.GetLdcI4Value();
+                    
+                    // We need a start block for resolution.
+                    // If stloc is the last instruction, it's the fallthrough.
+                    // If it's followed by ldc; stloc; br; it's the target.
+                    // If it's in the middle, we treat the rest of the block as a virtual start.
+                    
+                    Block startResolve;
+                    int numToRemove;
+
+                    if (i + 1 == block.Instructions.Count - 1)
+                    {
+                        // Last in block
+                        startResolve = block.FallThrough;
+                        numToRemove = 2;
+                    }
+                    else if (i + 2 == block.Instructions.Count - 1 && block.Instructions[i + 2].IsBr())
+                    {
+                        // stloc followed by br
                         startResolve = block.Targets[0];
                         numToRemove = 3;
                     }
-                }
-            }
-
-            // Complex Arithmetic Pattern: ldloc <local>; ldc <v>; mul; ldc <v2>; xor; stloc <local>;
-            if (local == null && block.Instructions.Count >= 6) {
-                int count = block.Instructions.Count;
-                var i5 = block.Instructions[count - 1]; // stloc
-                var i4 = block.Instructions[count - 2]; // xor
-                var i3 = block.Instructions[count - 3]; // ldc
-                var i2 = block.Instructions[count - 4]; // mul
-                var i1 = block.Instructions[count - 5]; // ldc
-                var i0 = block.Instructions[count - 6]; // ldloc
-
-                if (i5.IsStloc() && i4.OpCode == OpCodes.Xor && i3.IsLdcI4() && i2.OpCode == OpCodes.Mul && i1.IsLdcI4() && i0.IsLdloc()) {
-                    var l5 = Instr.GetLocalVar(blocks.Locals, i5);
-                    var l0 = Instr.GetLocalVar(blocks.Locals, i0);
-                    if (l5 != null && l5 == l0) {
-                        local = l5;
-                        // For complex patterns, we emulation the initial block once to get the start value
-                        emulator.Initialize(blocks.Method);
-                        // We need the OLD value of the local to solve the new one.
-                        // But wait! If this is a state update, we usually already known the state.
-                        // Actually, resolving based on an expression is hard if we don't know the input.
-                        // Bed's mod usually uses simple constants for the FIRST state set.
+                    else
+                    {
+                        // Middle of block. This is complex. For now, we only resolve if it's the end of a block pattern.
+                        continue;
                     }
-                }
-            }
 
-            if (local != null && startResolve != null && startValue != null)
-            {
-                var target = Resolve(startResolve, local, (startValue as Int32Value).Value);
-
-                if (target != null && target != startResolve)
-                {
-                    Logger.Debug($"Method {blocks.Method.Name}: Resolved state {startValue} (Local {local}) to target {target}");
-                    block.ReplaceLastInstrsWithBranch(numToRemove, target);
-                    return true;
+                    if (startResolve != null)
+                    {
+                        var target = Resolve(startResolve, local, value);
+                        if (target != null && target != startResolve)
+                        {
+                            Logger.Debug($"Method {blocks.Method.Name}: Resolved state {value} (Local {local}) to target {target}");
+                            block.ReplaceLastInstrsWithBranch(numToRemove, target);
+                            return true;
+                        }
+                    }
                 }
             }
 
@@ -114,16 +94,13 @@ namespace UnConfuserEx.Protections.ControlFlow
             Block current = startBlock;
             visited.Clear();
             
-            // Initialize emulator once for the resolution chain
             emulator.Initialize(blocks.Method);
             emulator.SetLocal(local, new Int32Value(value));
 
             while (current != null && visited.Add(current))
             {
                 if (!IsDispatcher(current, local))
-                {
                     return current;
-                }
 
                 if (current.Instructions.Count == 0)
                 {
@@ -131,39 +108,29 @@ namespace UnConfuserEx.Protections.ControlFlow
                     continue;
                 }
 
-                // Clear stack before emulating a dispatcher block
                 emulator.ClearStack();
 
-                // Emulate all instructions except the last branch
                 for (int i = 0; i < current.Instructions.Count - 1; i++)
                 {
                     emulator.Emulate(current.Instructions[i].Instruction);
                 }
 
-                // Emulate the branch instruction
                 branchTaken = false;
                 if (!branchEmulator.Emulate(current.LastInstr.Instruction))
-                {
                     return current;
-                }
 
-                // Follow the branch taken/not taken
-                Block next;
                 if (branchTaken)
                 {
                     if (current.Targets != null && current.Targets.Count > 0)
-                        next = current.Targets[0];
+                        current = current.Targets[0];
                     else
                         return current;
                 }
                 else
                 {
-                    next = current.FallThrough;
+                    current = current.FallThrough;
                 }
                 
-                current = next;
-
-                // Update the state variable if the block modified it
                 var newVal = emulator.GetLocal(local);
                 if (newVal is Int32Value i32 && i32.AllBitsValid())
                 {
@@ -176,7 +143,7 @@ namespace UnConfuserEx.Protections.ControlFlow
 
         private bool IsDispatcher(Block block, Local local)
         {
-            if (block.Instructions.Count > 40) return false;
+            if (block.Instructions.Count > 50) return false;
             if (block.Instructions.Count == 0) return true;
             
             bool usesLocal = false;
